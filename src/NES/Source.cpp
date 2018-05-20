@@ -7,15 +7,16 @@
 
 FILL main(INT argc, NStrArray argv) -> INT
 {
-	if (argc < 5)
+	if (argc != 5)
 	{
 		COUT << "E: Invalid Syntax" << ENDL << ENDL;
 		COUT << "Syntax: nes <mode> <input> <output> <password>" << ENDL << ENDL;
 		COUT << "Mode: E/D" << ENDL;
 		COUT << "E: To Encrypt" << ENDL;
 		COUT << "D: To Decrypt" << ENDL << ENDL;
-		COUT << "Input: path to input file" << ENDL;
-		COUT << "Output: path to output file";
+		COUT << "Input: path to the input file" << ENDL;
+		COUT << "Output: path to the output file" << ENDL;
+		COUT << "Password: path to the password file" << ENDL;
 		return E_ABORT;
 	}
 	else
