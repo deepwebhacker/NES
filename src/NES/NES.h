@@ -9,8 +9,23 @@
 
 namespace NES
 {
-	std::string NESEncrypt(std::string text, std::string key);
-	std::string NESDecrypt(std::string text, std::string key);
+	//A
+	//0
+	std::string NESForward(std::string text, std::string key);
+	//1
+	std::string NESBackward(std::string text, std::string key);
+
+	//B
+	//0
+	std::string NPLForward(std::string text, std::string key);
+	//1
+	std::string NPLBackward(std::string text, std::string key);
+
+	//C
+	//0
+	std::string NSXForward(std::string text, std::string key);
+	//1
+	std::string NSXBackward(std::string text, std::string key);
 }
 
 #endif // !_N_NES_H_
