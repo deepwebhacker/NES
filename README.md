@@ -5,6 +5,17 @@ A custom encryption service made entirely in standard C++
 
 Documentation may come soon.
 
+# WHY
+
+NES has a couple of encryptions pipelines that can go forward and back (At least that's how I call them).
+
+Let's call those methods A, B and C
+
+If you go forward in 'A' and then backward in 'A' you'll basically get the same data.
+
+So each Pipeline's Forward method, counteracts the Backward method, (And vice versa).
+Now since we have 2 more Encryption pipelines, you can move around in this grid of methods 
+and pipelines with a pattern file to make an extreme case of data encryption algorithm.
 
 # COPYRIGHT INFO
 
