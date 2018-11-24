@@ -54,7 +54,7 @@ namespace NES
 			char l;
 			for (int j = 0; j < key.length(); j++)
 			{
-				l = static_cast<char>(text[i] + (2 * key[j]) + (key[j] / 2));
+				l = static_cast<char>(text[i] + ((2 * key[j]) + (key[j] / 2)));
 			}
 			vec.push_back(l);
 		}
@@ -75,7 +75,7 @@ namespace NES
 			char l;
 			for (int j = 0; j < key.length(); j++)
 			{
-				l = static_cast<char>(text[i] - (2 * key[j]) + (key[j] / 2));
+				l = static_cast<char>(text[i] - ((2 * key[j]) + (key[j] / 2)));
 			}
 			vec.push_back(l);
 		}
