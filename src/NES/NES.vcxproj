@@ -119,7 +119,6 @@
     <ClCompile Include="NFile.cpp" />
     <ClCompile Include="NPatern.cpp" />
     <ClCompile Include="NString.cpp" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NES.h" />
