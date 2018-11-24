@@ -1,3 +1,5 @@
+//© 2018 NIREX ALL RIGHTS RESERVED
+
 #ifndef _N_PRECOMPILED_H_
 #define _N_PRECOMPILED_H_
 
@@ -12,6 +14,7 @@
 #define ENDL			std::endl
 #define COUT			std::cout
 #define CIN				std::cin
+#define LINE			std::getline
 
 // Custom Types
 typedef char**			NStrArray;
@@ -29,5 +32,8 @@ typedef bool			BOOL;
 #define E_ABORT			1
 #define E_NOTIMPL		2
 #define E_UNKNOWN		3
+
+// Custom Macros
+#define	UNREFERENCED_PARAMETER(P) P
 
 #endif // !_N_PRECOMPILED_H_
