@@ -18,7 +18,6 @@ namespace NES
 	std::string TEXT_NESC0(std::string text, std::string key); // TC0
 	std::string TEXT_NESC1(std::string text, std::string key); // TC1
 
-
 	std::vector<char> DATA_NESA0(std::vector<char> data, std::string key); // DA0
 	std::vector<char> DATA_NESA1(std::vector<char> data, std::string key); // DA1
 					  														  

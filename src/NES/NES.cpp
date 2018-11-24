@@ -141,4 +141,106 @@ namespace NES
 		}
 		return returnStr;
 	}
+
+	std::vector<char> DATA_NESA0(std::vector<char> data, std::string key)
+	{
+		int dataLen = data.size();
+		int keyLen = key.length();
+		std::vector<char> vec;
+		for (int i = 0; i < dataLen; i++)
+		{
+			char l;
+			for (int j = 0; j < keyLen; j++)
+			{
+				l = (data[i] + (2 * key[j] * pow(key[j], 2) + (8 * key[j])));
+			}
+			vec.push_back(l);
+		}
+		return vec;
+	}
+
+	std::vector<char> DATA_NESA1(std::vector<char> data, std::string key)
+	{
+		int dataLen = data.size();
+		int keyLen = key.length();
+		std::vector<char> vec;
+		for (int i = 0; i < dataLen; i++)
+		{
+			char l;
+			for (int j = 0; j < keyLen; j++)
+			{
+				l = (data[i] - (2 * key[j] * pow(key[j], 2) + (8 * key[j])));
+			}
+			vec.push_back(l);
+		}
+		return vec;
+	}
+
+	std::vector<char> DATA_NESB0(std::vector<char> data, std::string key)
+	{
+		int dataLen = data.size();
+		int keyLen = key.length();
+		std::vector<char> vec;
+		for (int i = 0; i < dataLen; i++)
+		{
+			char l;
+			for (int j = 0; j < keyLen; j++)
+			{
+				l = static_cast<char>(data[i] + (2 * key[j]) + (key[j] / 2));
+			}
+			vec.push_back(l);
+		}
+		return data;
+	}
+
+	std::vector<char> DATA_NESB1(std::vector<char> data, std::string key)
+	{
+		int dataLen = data.size();
+		int keyLen = key.length();
+		std::vector<char> vec;
+		for (int i = 0; i < dataLen; i++)
+		{
+			char l;
+			for (int j = 0; j < keyLen; j++)
+			{
+				l = static_cast<char>(data[i] - (2 * key[j]) + (key[j] / 2));
+			}
+			vec.push_back(l);
+		}
+		return vec;
+	}
+
+	std::vector<char> DATA_NESC0(std::vector<char> data, std::string key)
+	{
+		int dataLen = data.size();
+		int keyLen = key.length();
+		std::vector<char> vec;
+		for (int i = 0; i < dataLen; i++)
+		{
+			char l;
+			for (int j = 0; j < keyLen; j++)
+			{
+				l = static_cast<char>(data[i] + (key[j]));
+			}
+			vec.push_back(l);
+		}
+		return vec;
+	}
+
+	std::vector<char> DATA_NESC1(std::vector<char> data, std::string key)
+	{
+		int dataLen = data.size();
+		int keyLen = key.length();
+		std::vector<char> vec;
+		for (int i = 0; i < dataLen; i++)
+		{
+			char l;
+			for (int j = 0; j < keyLen; j++)
+			{
+				l = static_cast<char>(data[i] - (key[j]));
+			}
+			vec.push_back(l);
+		}
+		return vec;
+	}
 }
