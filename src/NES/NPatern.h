@@ -2,6 +2,8 @@
 #define _N_PATERN_H_
 
 #include "Precompiled.h"
+#include <string>
+#include <vector>
 
 class NPatern
 {
