@@ -1,12 +1,12 @@
-#include "NPatern.h"
+#include "NPattern.h"
 #include "NFile.h"
 #include "NString.h"
 #include "NES.h"
 
-bool NPatern::Load(std::string path)
+bool NPattern::Load(std::string path)
 {
-	m_paterns = NFile::ReadAllLines(path);
-	for (auto& p : m_paterns)
+	m_patterns = NFile::ReadAllLines(path);
+	for (auto& p : m_patterns)
 	{
 		if (p != "A0" &&
 			p != "A1" &&
@@ -22,10 +22,10 @@ bool NPatern::Load(std::string path)
 	return true;
 }
 
-std::string NPatern::Text_Perfom(std::string text, std::string key)
+std::string NPattern::Text_Perfom(std::string text, std::string key)
 {
 	std::string intext = text;
-	for (auto& p : m_paterns)
+	for (auto& p : m_patterns)
 	{
 		if (p == "TA0")
 		{
@@ -55,10 +55,10 @@ std::string NPatern::Text_Perfom(std::string text, std::string key)
 	return intext;
 }
 
-std::vector<char> NPatern::Data_Perform(std::vector<char> data, std::string key)
+std::vector<char> NPattern::Data_Perform(std::vector<char> data, std::string key)
 {
 	std::vector<char> indata;
-	for (auto& p : m_paterns)
+	for (auto& p : m_patterns)
 	{
 		if (p == "DA0")
 		{
