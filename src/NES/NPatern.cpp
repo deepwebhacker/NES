@@ -52,4 +52,5 @@ std::string NPatern::Perfom(std::string text, std::string key)
 			intext = NES::NSXBackward(intext, key);
 		}
 	}
+	return intext;
 }
