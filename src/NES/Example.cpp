@@ -77,6 +77,34 @@ FILL main(INT argc, NStrArray argv) -> INT
 	COUT << "Decrypted(Pattern): ";
 	COUT << szSuperDecrypted << ENDL;
 	COUT << ENDL;
+	
+	szSuperEncrypted = NES::TEXT_NESA1(szText, szKey);
+	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESC1(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESC1(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESC1(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
+
+	COUT << "Mix: ";
+	COUT << szSuperEncrypted << ENDL;
+	COUT << ENDL;
 
 	return S_OK;
 }
