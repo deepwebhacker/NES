@@ -4,7 +4,7 @@
 
 namespace NES
 {
-	std::string NESForward(std::string text, std::string key)
+	std::string TEXT_NESA0(std::string text, std::string key)
 	{
 		int textLen = text.length();
 		int keyLen = key.length();
@@ -26,8 +26,8 @@ namespace NES
 		}
 		return returnStr;
 	}
-
-	std::string NESBackward(std::string text, std::string key)
+				
+	std::string TEXT_NESA1(std::string text, std::string key)
 	{
 		int textLen = text.length();
 		int keyLen = key.length();
@@ -49,7 +49,8 @@ namespace NES
 		}
 		return returnStr;
 	}
-	std::string NPLForward(std::string text, std::string key)
+				
+	std::string TEXT_NESB0(std::string text, std::string key)
 	{
 		int textLen = text.length();
 		int keyLen = key.length();
@@ -71,7 +72,8 @@ namespace NES
 		}
 		return returnStr;
 	}
-	std::string NPLBackward(std::string text, std::string key)
+				
+	std::string TEXT_NESB1(std::string text, std::string key)
 	{
 		int textLen = text.length();
 		int keyLen = key.length();
@@ -93,7 +95,8 @@ namespace NES
 		}
 		return returnStr;
 	}
-	std::string NSXForward(std::string text, std::string key)
+				
+	std::string TEXT_NESC0(std::string text, std::string key)
 	{
 		int textLen = text.length();
 		int keyLen = key.length();
@@ -115,7 +118,8 @@ namespace NES
 		}
 		return returnStr;
 	}
-	std::string NSXBackward(std::string text, std::string key)
+				
+	std::string TEXT_NESC1(std::string text, std::string key)
 	{
 		int textLen = text.length();
 		int keyLen = key.length();
