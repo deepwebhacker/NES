@@ -1,7 +1,7 @@
 # NES
-Nirex Encryption Service
+Nirex Encryption Standard
 
-A custom encryption service made entirely in standard C++
+A custom encryption standard made entirely in standard C++
 
 Documentation may come soon.
 
