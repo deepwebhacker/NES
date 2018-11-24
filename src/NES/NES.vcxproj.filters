@@ -24,7 +24,7 @@
     <ClCompile Include="NES.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NPatern.cpp">
+    <ClCompile Include="NPattern.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="NES.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NPatern.h">
+    <ClInclude Include="NPattern.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
