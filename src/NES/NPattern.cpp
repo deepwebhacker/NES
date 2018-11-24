@@ -6,7 +6,7 @@
 bool NPattern::Load(std::string path)
 {
 	m_patterns = NFile::ReadAllLines(path);
-	return Check(path);
+	return Check();
 }
 
 bool NPattern::Check(void)
