@@ -9,7 +9,8 @@ class NPattern
 {
 public:
 	bool Load(std::string path);
-	
+	bool Check(void);
+
 	std::string Text_Perfom(std::string text, std::string key);
 	std::vector<char> Data_Perform(std::vector<char> data, std::string key);
 

@@ -6,20 +6,29 @@
 bool NPattern::Load(std::string path)
 {
 	m_patterns = NFile::ReadAllLines(path);
-	for (auto& p : m_patterns)
+	return Check(path);
+}
+
+bool NPattern::Check(void)
+{
+	if (m_patterns.size() != 0)
 	{
-		if (p != "A0" &&
-			p != "A1" &&
-			p != "B0" &&
-			p != "B1" &&
-			p != "C0" &&
-			p != "C1")
+		for (auto& p : m_patterns)
 		{
-			// Bad Pattern file
-			return false; 
+			if (p != "A0" &&
+				p != "A1" &&
+				p != "B0" &&
+				p != "B1" &&
+				p != "C0" &&
+				p != "C1")
+			{
+				// Bad Pattern file
+				return E_UNKNOWN;
+			}
 		}
+		return S_OK;
 	}
-	return true;
+	return E_UNKNOWN;
 }
 
 std::string NPattern::Text_Perfom(std::string text, std::string key)
