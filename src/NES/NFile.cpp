@@ -4,7 +4,6 @@
 
 namespace NFile
 {
-	// Simple (std::string)
 	std::string ReadAllText(std::string file)
 	{
 		std::ifstream f(file.c_str());
@@ -31,25 +30,6 @@ namespace NFile
 		return 0;
 	}
 
-	std::int32_t FindFirst(std::string file, std::string val)
-	{
-		std::ifstream f(file.c_str());
-
-		std::string str = EMPTY_VAL;
-		int iter = 0;
-		while (std::getline(f, str))
-		{
-			if (val == str)
-			{
-				return iter;
-			}
-			iter++;
-		}
-		f.close();
-		return -1;
-	}
-
-	// Complex (std::vector)
 	std::vector<std::string> ReadAllLines(std::string file)
 	{
 		std::ifstream f(file.c_str());
@@ -78,6 +58,52 @@ namespace NFile
 
 		f.close();
 		return 0;
+	}
+
+	std::vector<char> ReadAllBytes(std::string fileName)
+	{
+		std::ifstream ifs(fileName, std::ios::binary | std::ios::ate);
+		std::ifstream::pos_type pos = ifs.tellg();
+
+		std::vector<char>  result(pos);
+
+		ifs.seekg(0, std::ios::beg);
+		ifs.read(&result[0], pos);
+
+		return result;
+	}
+
+	int WriteAllBytes(std::string fileName, std::vector<char> vecBytes)
+	{
+		std::ofstream ofs(fileName, std::ios::binary | std::ios::out);
+	
+		ofs.write(vecBytes.data(), vecBytes.size());
+		
+		if (ofs.bad())    //bad() function will check for badbit
+		{
+			return E_UNKNOWN;
+		}
+
+		ofs.close();
+		return S_OK;
+	}
+
+	std::int32_t FindFirst(std::string file, std::string val)
+	{
+		std::ifstream f(file.c_str());
+
+		std::string str = EMPTY_VAL;
+		int iter = 0;
+		while (std::getline(f, str))
+		{
+			if (val == str)
+			{
+				return iter;
+			}
+			iter++;
+		}
+		f.close();
+		return -1;
 	}
 
 	std::vector<int32_t> FindAll(std::string file, std::string val)
