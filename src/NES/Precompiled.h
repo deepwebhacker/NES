@@ -24,6 +24,7 @@ typedef bool			BOOL;
 #define TRUE			1
 
 // Error Codes
+#define E_ERR			-1
 #define S_OK			0
 #define E_ABORT			1
 #define E_NOTIMPL		2
