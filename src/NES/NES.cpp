@@ -6,13 +6,11 @@ namespace NES
 {
 	std::string TEXT_NESA0(std::string text, std::string key)
 	{
-		int textLen = text.length();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < textLen; i++)
+		for (int i = 0; i < text.length(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(text[i] + (2 * key[j] * pow(key[j], 2) + (8 * key[j])));
 			}
@@ -29,13 +27,11 @@ namespace NES
 				
 	std::string TEXT_NESA1(std::string text, std::string key)
 	{
-		int textLen = text.length();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < textLen; i++)
+		for (int i = 0; i < text.length(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j <  key.length(); j++)
 			{
 				l = static_cast<char>(text[i] - (2 * key[j] * pow(key[j], 2) + (8 * key[j])));
 			}
@@ -52,13 +48,11 @@ namespace NES
 				
 	std::string TEXT_NESB0(std::string text, std::string key)
 	{
-		int textLen = text.length();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < textLen; i++)
+		for (int i = 0; i < text.length(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(text[i] + (2 * key[j]) + (key[j] / 2));
 			}
@@ -75,13 +69,11 @@ namespace NES
 				
 	std::string TEXT_NESB1(std::string text, std::string key)
 	{
-		int textLen = text.length();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < textLen; i++)
+		for (int i = 0; i < text.length(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(text[i] - (2 * key[j]) + (key[j] / 2));
 			}
@@ -98,13 +90,11 @@ namespace NES
 				
 	std::string TEXT_NESC0(std::string text, std::string key)
 	{
-		int textLen = text.length();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < textLen; i++)
+		for (int i = 0; i <  text.length(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(text[i] + (key[j]));
 			}
@@ -121,13 +111,11 @@ namespace NES
 				
 	std::string TEXT_NESC1(std::string text, std::string key)
 	{
-		int textLen = text.length();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < textLen; i++)
+		for (int i = 0; i < text.length(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(text[i] - (key[j]));
 			}
@@ -144,13 +132,11 @@ namespace NES
 
 	std::vector<char> DATA_NESA0(std::vector<char> data, std::string key)
 	{
-		int dataLen = data.size();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < dataLen; i++)
+		for (int i = 0; i < data.size(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = (data[i] + (2 * key[j] * pow(key[j], 2) + (8 * key[j])));
 			}
@@ -161,13 +147,11 @@ namespace NES
 
 	std::vector<char> DATA_NESA1(std::vector<char> data, std::string key)
 	{
-		int dataLen = data.size();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < dataLen; i++)
+		for (int i = 0; i < data.size(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j <  key.length(); j++)
 			{
 				l = (data[i] - (2 * key[j] * pow(key[j], 2) + (8 * key[j])));
 			}
@@ -178,13 +162,11 @@ namespace NES
 
 	std::vector<char> DATA_NESB0(std::vector<char> data, std::string key)
 	{
-		int dataLen = data.size();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < dataLen; i++)
+		for (int i = 0; i < data.size(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(data[i] + (2 * key[j]) + (key[j] / 2));
 			}
@@ -195,13 +177,11 @@ namespace NES
 
 	std::vector<char> DATA_NESB1(std::vector<char> data, std::string key)
 	{
-		int dataLen = data.size();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < dataLen; i++)
+		for (int i = 0; i <  data.size(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(data[i] - (2 * key[j]) + (key[j] / 2));
 			}
@@ -212,13 +192,11 @@ namespace NES
 
 	std::vector<char> DATA_NESC0(std::vector<char> data, std::string key)
 	{
-		int dataLen = data.size();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < dataLen; i++)
+		for (int i = 0; i <  data.size(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j <  key.length(); j++)
 			{
 				l = static_cast<char>(data[i] + (key[j]));
 			}
@@ -229,13 +207,11 @@ namespace NES
 
 	std::vector<char> DATA_NESC1(std::vector<char> data, std::string key)
 	{
-		int dataLen = data.size();
-		int keyLen = key.length();
 		std::vector<char> vec;
-		for (int i = 0; i < dataLen; i++)
+		for (int i = 0; i < data.size(); i++)
 		{
 			char l;
-			for (int j = 0; j < keyLen; j++)
+			for (int j = 0; j < key.length(); j++)
 			{
 				l = static_cast<char>(data[i] - (key[j]));
 			}
