@@ -9,23 +9,25 @@
 
 namespace NES
 {
-	//A
-	//0
-	std::string NESForward(std::string text, std::string key);
-	//1
-	std::string NESBackward(std::string text, std::string key);
+	std::string TEXT_NESA0(std::string text, std::string key); // TA0
+	std::string TEXT_NESA1(std::string text, std::string key); // TA1
+																  
+	std::string TEXT_NESB0(std::string text, std::string key); // TB0
+	std::string TEXT_NESB1(std::string text, std::string key); // TB1
+																  
+	std::string TEXT_NESC0(std::string text, std::string key); // TC0
+	std::string TEXT_NESC1(std::string text, std::string key); // TC1
 
-	//B
-	//0
-	std::string NPLForward(std::string text, std::string key);
-	//1
-	std::string NPLBackward(std::string text, std::string key);
 
-	//C
-	//0
-	std::string NSXForward(std::string text, std::string key);
-	//1
-	std::string NSXBackward(std::string text, std::string key);
+	std::vector<char> DATA_NESA0(std::vector<char> data, std::string key); // DA0
+	std::vector<char> DATA_NESA1(std::vector<char> data, std::string key); // DA1
+					  														  
+	std::vector<char> DATA_NESB0(std::vector<char> data, std::string key); // DB0
+	std::vector<char> DATA_NESB1(std::vector<char> data, std::string key); // DB1
+		 			  			 											  
+	std::vector<char> DATA_NESC0(std::vector<char> data, std::string key); // DC0
+	std::vector<char> DATA_NESC1(std::vector<char> data, std::string key); // DC1
+
 }
 
 #endif // !_N_NES_H_
