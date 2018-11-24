@@ -117,13 +117,13 @@
   <ItemGroup>
     <ClCompile Include="NES.cpp" />
     <ClCompile Include="NFile.cpp" />
-    <ClCompile Include="NPatern.cpp" />
+    <ClCompile Include="NPattern.cpp" />
     <ClCompile Include="NString.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NES.h" />
     <ClInclude Include="NFile.h" />
-    <ClInclude Include="NPatern.h" />
+    <ClInclude Include="NPattern.h" />
     <ClInclude Include="NString.h" />
     <ClInclude Include="Precompiled.h" />
   </ItemGroup>
