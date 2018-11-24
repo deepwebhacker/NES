@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Example.cpp" />
     <ClCompile Include="NES.cpp" />
     <ClCompile Include="NFile.cpp" />
     <ClCompile Include="NPattern.cpp" />
