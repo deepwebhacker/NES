@@ -3,13 +3,13 @@
 #include "NString.h"
 #include "NES.h"
 
-bool NPattern::Load(std::string path)
+int NPattern::Load(std::string path)
 {
 	m_patterns = NFile::ReadAllLines(path);
 	return Check();
 }
 
-bool NPattern::Check(void)
+int NPattern::Check(void)
 {
 	if (m_patterns.size() != 0)
 	{
@@ -22,13 +22,12 @@ bool NPattern::Check(void)
 				p != "C0" &&
 				p != "C1")
 			{
-				// Bad Pattern file
-				return E_UNKNOWN;
+				return E_ERR;
 			}
 		}
 		return S_OK;
 	}
-	return E_UNKNOWN;
+	return E_ERR;
 }
 
 std::string NPattern::Text_Perfom(std::string text, std::string key)
