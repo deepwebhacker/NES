@@ -33,9 +33,6 @@
     <ClCompile Include="NKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NRandom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NFile.h">
@@ -57,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NRandom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
