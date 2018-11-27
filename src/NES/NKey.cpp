@@ -7,13 +7,12 @@ namespace NKey
 {
 	std::string Generate(int min, int max)
 	{
-		NRandom rand;
-		int len = rand.GetNumber(min, max);
+		int len = NRandom::GetNumber(min, max, 50);
 
 		std::string retval = "";
 		for (int i = 0; i < len; i++)
 		{
-			retval += static_cast<char>(rand.GetNumber(1, 500));
+			retval += static_cast<char>(NRandom::GetNumber(1, 500, 70));
 		}
 		return retval;
 	}
