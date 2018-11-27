@@ -1,8 +1,9 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
 // Pipeline Guidelines:
-// A: A0 and A1 are free to use and your go-to
-// B: B0 must only be used before B1 (If you use B1 without B0 your data will be corrupted)
+// A: A0 and A1 are free to use and your go-to methods when you want a fast and lite encryption.
+// B: Do not use B1 when encrypting your data, it will corrupt it.
+//	: B1 is only meant for decryption.
 // C: C Pipeline Is under development
 
 #include "Precompiled.h"
@@ -70,7 +71,7 @@ FILL main(INT argc, NStrArray argv) -> INT
 
 	COUT << "Decrypted(A_00): ";
 	COUT << szDecrypted << ENDL;
-	COUT << "Decrypted(A_02): ";
+	COUT << "Decrypted(A_01): ";
 	COUT << szDecrypted01 << ENDL;
 	COUT << "Decrypted(A_02): ";
 	COUT << szDecrypted02 << ENDL;
@@ -106,7 +107,7 @@ FILL main(INT argc, NStrArray argv) -> INT
 
 	COUT << "Decrypted(B_00): ";
 	COUT << szDecrypted << ENDL;
-	COUT << "Decrypted(B_02): ";
+	COUT << "Decrypted(B_01): ";
 	COUT << szDecrypted01 << ENDL;
 	COUT << "Decrypted(B_02): ";
 	COUT << szDecrypted02 << ENDL;
