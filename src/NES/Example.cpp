@@ -1,5 +1,8 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
+// A0 and A1 are free to use and your go-to
+// B0 must only be used before B1 (If you use B1 without B0 your data will be corrupted)
+
 #include "Precompiled.h"
 #include "NES.h"
 #include "NString.h"
@@ -53,58 +56,25 @@ FILL main(INT argc, NStrArray argv) -> INT
 	COUT << ENDL;
 
 	std::string szSuperEncrypted;
-	szSuperEncrypted = NES::TEXT_NESA0(szText, szKey);
-	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
 
-	std::string szSuperDecrypted;
-	szSuperDecrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESC1(szSuperDecrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESC1(szSuperDecrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESA0(szSuperDecrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESB1(szSuperDecrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESB1(szSuperDecrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESA1(szSuperDecrypted, szKey);
-	szSuperDecrypted = NES::TEXT_NESA1(szSuperDecrypted, szKey);
-
-	COUT << "Encrypted(Pattern): ";
-	COUT << szSuperEncrypted << ENDL;
-	COUT << "Decrypted(Pattern): ";
-	COUT << szSuperDecrypted << ENDL;
-	COUT << ENDL;
 	
-	szSuperEncrypted = NES::TEXT_NESA1(szText, szKey);
+	szSuperEncrypted = NES::TEXT_NESB0(szText, szKey);
+	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
 	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
+
+	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
+	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
+
 	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
-
 	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESC1(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC1(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC1(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESC0(szSuperEncrypted, szKey);
 
 	COUT << "Mix: ";
 	COUT << szSuperEncrypted << ENDL;
 	COUT << ENDL;
 
+	int x;
+	CIN >> x;
 	return S_OK;
 }
