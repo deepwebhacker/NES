@@ -1,7 +1,9 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
-// A0 and A1 are free to use and your go-to
-// B0 must only be used before B1 (If you use B1 without B0 your data will be corrupted)
+// Pipeline Guidelines:
+// A: A0 and A1 are free to use and your go-to
+// B: B0 must only be used before B1 (If you use B1 without B0 your data will be corrupted)
+// C: C Pipeline Is under development
 
 #include "Precompiled.h"
 #include "NES.h"
@@ -53,25 +55,6 @@ FILL main(INT argc, NStrArray argv) -> INT
 	COUT << szEncrypted << ENDL;
 	COUT << "Decrypted(C): "; 
 	COUT << szDecrypted << ENDL;
-	COUT << ENDL;
-
-	std::string szSuperEncrypted;
-
-	
-	szSuperEncrypted = NES::TEXT_NESB0(szText, szKey);
-	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESB0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESA0(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
-
-	szSuperEncrypted = NES::TEXT_NESA1(szSuperEncrypted, szKey);
-	szSuperEncrypted = NES::TEXT_NESB1(szSuperEncrypted, szKey);
-
-	COUT << "Mix: ";
-	COUT << szSuperEncrypted << ENDL;
 	COUT << ENDL;
 
 	int x;
