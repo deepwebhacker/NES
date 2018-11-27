@@ -3,6 +3,8 @@
 #ifndef _N_PRECOMPILED_H_
 #define _N_PRECOMPILED_H_
 
+#define _CRT_SECURE_NO_WARNINGS
+
 // Special Propertoes
 #define EMPTY_VAL		""
 #define PLHDR_VAL		""
@@ -18,8 +20,8 @@
 
 // Custom Types
 typedef char**			NStrArray;
-typedef int				INT;
-typedef bool			BOOL;
+typedef int				NINT;
+typedef bool			NBOOL;
 
 // Custom Definitions
 #define FILL			auto
