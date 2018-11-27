@@ -70,30 +70,30 @@ std::vector<char> NPattern::Data_Perform(std::vector<char> data, std::string key
 	std::vector<char> indata;
 	for (auto& p : m_patterns)
 	{
-		if (p == "DA0")
-		{
-			indata = NES::DATA_NESA0(indata, key);
-		}
-		else if (p == "DA1")
-		{
-			indata = NES::DATA_NESA1(indata, key);
-		}
-		else if (p == "DB0")
-		{
-			indata = NES::DATA_NESB0(indata, key);
-		}
-		else if (p == "DB1")
-		{
-			indata = NES::DATA_NESB1(indata, key);
-		}
-		else if (p == "DC0")
-		{
-			indata = NES::DATA_NESC0(indata, key);
-		}
-		else if (p == "DC1")
-		{
-			indata = NES::DATA_NESC1(indata, key);
-		}
+		//if (p == "DA0")
+		//{
+		//	indata = NES::DATA_NESA0(indata, key);
+		//}
+		//else if (p == "DA1")
+		//{
+		//	indata = NES::DATA_NESA1(indata, key);
+		//}
+		//else if (p == "DB0")
+		//{
+		//	indata = NES::DATA_NESB0(indata, key);
+		//}
+		//else if (p == "DB1")
+		//{
+		//	indata = NES::DATA_NESB1(indata, key);
+		//}
+		//else if (p == "DC0")
+		//{
+		//	indata = NES::DATA_NESC0(indata, key);
+		//}
+		//else if (p == "DC1")
+		//{
+		//	indata = NES::DATA_NESC1(indata, key);
+		//}
 	}
 	return indata;
 }
