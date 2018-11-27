@@ -1,3 +1,5 @@
+//© 2018 NIREX ALL RIGHTS RESERVED
+
 #include "NPattern.h"
 #include "NFile.h"
 #include "NString.h"
