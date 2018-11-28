@@ -81,7 +81,7 @@ namespace NES
 		}
 		return returnStr;
 	}
-				
+
 	std::string TEXT_NESB0(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
@@ -166,40 +166,106 @@ namespace NES
 				
 	std::string TEXT_NESC0(std::string text, std::string key)
 	{
-		std::vector<char> vec;
-		for (int i = 0; i <  (int)text.length(); i++)
+		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
+
+		time[0] *= NRandom::GetNumber(170, 240, 5);
+		time[1] *= NRandom::GetNumber(270, 340, 6);
+		time[2] *= NRandom::GetNumber(370, 440, 7);
+		time[3] *= NRandom::GetNumber(470, 540, 8);
+
+		std::vector<unsigned char> data;
+		data.push_back(time[0]);
+		data.push_back(time[1]);
+		data.push_back(time[2]);
+		data.push_back(time[3]);
+
+		unsigned char KeyX = 0;
+		for (size_t i = 0; i < key.length(); i++)
 		{
-			char l;
-			for (int j = 0; j < (int)key.length(); j++)
-			{
-				l = static_cast<char>(text[i] + (key[j]));
-			}
-			vec.push_back(l);
+			KeyX += key[i];
+		}
+		KeyX += time[0] + time[1] + time[2] + time[3];
+		KeyX /= key.length();
+		float SqKeyX = sqrt(KeyX);
+
+		for (int i = 0; i < (int)text.length(); i++)
+		{
+			float SqText = sqrt(text[i]);
+			float mainC = (SqText + SqKeyX);
+			mainC *= 1000000;
+			float mainCX = sqrt(mainC);
+			unsigned long long mainCNormalized = (unsigned long long)(mainCX * 1000000);
+
+			unsigned char remainder = mainCNormalized % 255;
+			unsigned long numerator = mainCNormalized / 255;
+
+			unsigned char b1 = (numerator & 0xFF);
+			unsigned char b2 = ((numerator >> 8) & 0xFF);
+			unsigned char b3 = ((numerator >> 16) & 0xFF);
+			unsigned char b4 = ((numerator >> 24) & 0xFF);
+
+			data.push_back(remainder);
+			data.push_back(b1);
+			data.push_back(b2);
+			data.push_back(b3);
+			data.push_back(b4);
 		}
 		std::string returnStr = "";
-		int size = static_cast<int>((int)vec.size());
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < (int)data.size(); i++)
 		{
-			returnStr += vec[i];
+			returnStr += data[i];
 		}
 		return returnStr;
 	}
 				
 	std::string TEXT_NESC1(std::string text, std::string key)
 	{
-		std::vector<char> vec;
-		for (int i = 0; i < (int)text.length(); i++)
+		std::vector<unsigned char> vec;
+		std::vector<unsigned char> vecRem;
+		std::vector<unsigned long> vecNum;
+
+		unsigned char KeyX = 0;
+		for (size_t i = 0; i < key.length(); i++)
 		{
-			char l;
-			for (int j = 0; j <(int)key.length(); j++)
-			{
-				l = static_cast<char>(text[i] - (key[j]));
-			}
-			vec.push_back(l);
+			KeyX += key[i];
 		}
+		KeyX += text[0] + text[1] + text[2] + text[3];
+		KeyX /= key.length();
+		float SqKeyX = sqrt(KeyX);
+
+		for (size_t i = 4; i < text.length(); i += 5)
+		{
+			unsigned char remainder = (unsigned char)text[i];
+
+			unsigned long numerator =
+				((unsigned long)(((unsigned char)text[i + 4]) << 24)
+					| (unsigned long)(((unsigned char)text[i + 3]) << 16)
+					| (unsigned long)(((unsigned char)text[i + 2]) << 8)
+					| (unsigned long)((unsigned char)text[i + 1]));
+
+
+			vecRem.push_back(remainder);
+			vecNum.push_back(numerator);
+		}
+
+		for (size_t i = 0; i < vecRem.size(); i++)
+		{
+			float currentOperand = ((vecNum[i] * 255) + vecRem[i]);
+			unsigned long long currentOperandD = unsigned long long(currentOperand) / 1000000;
+			float MixOfTextKeySqrt = currentOperandD * currentOperandD;
+			MixOfTextKeySqrt = round(MixOfTextKeySqrt);
+			MixOfTextKeySqrt = MixOfTextKeySqrt / 1000000;
+
+			float SqrtOfText = MixOfTextKeySqrt - SqKeyX;
+			float TextD = SqrtOfText * SqrtOfText;
+			TextD = round(TextD);
+			
+			unsigned char TextN = (unsigned char)TextD;
+			vec.push_back(TextN);
+		}
+
 		std::string returnStr = "";
-		int size = static_cast<int>(vec.size());
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < (int)vec.size(); i++)
 		{
 			returnStr += vec[i];
 		}
