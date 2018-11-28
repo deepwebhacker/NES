@@ -220,7 +220,7 @@ namespace NES
 				
 	std::string TEXT_NESC1(std::string text, std::string key)
 	{
-		std::vector<unsigned char> vec;
+		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;
 		std::vector<unsigned long> vecNum;
 
@@ -243,7 +243,6 @@ namespace NES
 					| (unsigned long)(((unsigned char)text[i + 2]) << 8)
 					| (unsigned long)((unsigned char)text[i + 1]));
 
-
 			vecRem.push_back(remainder);
 			vecNum.push_back(numerator);
 		}
@@ -261,13 +260,13 @@ namespace NES
 			TextD = round(TextD);
 			
 			unsigned char TextN = (unsigned char)TextD;
-			vec.push_back(TextN);
+			data.push_back(TextN);
 		}
 
 		std::string returnStr = "";
-		for (int i = 0; i < (int)vec.size(); i++)
+		for (int i = 0; i < (int)data.size(); i++)
 		{
-			returnStr += vec[i];
+			returnStr += data[i];
 		}
 		return returnStr;
 	}
