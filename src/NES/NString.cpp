@@ -97,4 +97,16 @@ namespace NString
 		retvec.push_back(in_s);
 		return retvec;
 	}
+
+	std::string HexString(const std::string& in_s)
+	{
+		std::stringstream stream;
+
+		for (size_t i = 0; i < in_s.length(); i++)
+		{
+			stream << std::hex << (int)in_s[i];
+		}
+
+		return stream.str();
+	}
 }

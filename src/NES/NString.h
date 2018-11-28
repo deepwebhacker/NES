@@ -6,6 +6,8 @@
 #include "Precompiled.h"
 #include <string>
 #include <vector>
+#include <iomanip>
+#include <sstream>
 
 namespace NString
 {
@@ -18,6 +20,8 @@ namespace NString
 	std::string Proper(std::string temp);
 
 	std::vector<std::string> Split(std::string in_s, const std::string& delim);
+
+	std::string HexString(const std::string& in_s);
 }
 
 #endif // !_N_STRING_H_
