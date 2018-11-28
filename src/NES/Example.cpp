@@ -23,6 +23,7 @@ FILL main(INT argc, NStrArray argv) -> INT
 	UNREFERENCED_PARAMETER(argv);
 
 
+
 	std::string szText;
 	std::string szKey;
 	std::string szEncrypted;
@@ -43,9 +44,6 @@ FILL main(INT argc, NStrArray argv) -> INT
 	
 	szText = "The Secret Message!";
 	szKey = "The Master Key is: \"Master Secret Key!!!!XXXXXXXXXXXX\"";
-
-	//szText = "T";
-	//szKey = "The Master Key is: \"Master Secret Key!!!!XXXXXXXXXXXX\"";
 
 	COUT << ENDL;
 
