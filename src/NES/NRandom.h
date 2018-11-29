@@ -8,7 +8,7 @@
 class NRandom
 {
 public:
-	static inline int GetNumber(int min, int max, int seed)
+	static inline unsigned int GetNumber(unsigned int min, unsigned int max, unsigned int seed)
 	{
 		std::uniform_int_distribution<std::mt19937::result_type> udist(min, max);
 		std::mt19937 rng;
