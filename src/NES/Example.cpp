@@ -50,17 +50,17 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 
 		COUT << ENDL;
 
-		szEncrypted = NES::NESA0(szText, szKey);
+		szEncrypted = BMP::BM_A0(szText, szKey);
 		Sleep(10);
-		szEncrypted01 = NES::NESA0(szText, szKey);
+		szEncrypted01 = BMP::BM_A0(szText, szKey);
 		Sleep(10);
-		szEncrypted02 = NES::NESA0(szText, szKey);
+		szEncrypted02 = BMP::BM_A0(szText, szKey);
 		Sleep(10);
-		szEncrypted03 = NES::NESA0(szText, szKey);
-		szDecrypted = NES::NESA1(szEncrypted, szKey);
-		szDecrypted01 = NES::NESA1(szEncrypted01, szKey);
-		szDecrypted02 = NES::NESA1(szEncrypted02, szKey);
-		szDecrypted03 = NES::NESA1(szEncrypted03, szKey);
+		szEncrypted03 = BMP::BM_A0(szText, szKey);
+		szDecrypted = BMP::BM_A1(szEncrypted, szKey);
+		szDecrypted01 = BMP::BM_A1(szEncrypted01, szKey);
+		szDecrypted02 = BMP::BM_A1(szEncrypted02, szKey);
+		szDecrypted03 = BMP::BM_A1(szEncrypted03, szKey);
 
 		COUT << "Encrypted(A_00): ";
 		COUT << szEncrypted << ENDL;
@@ -83,17 +83,17 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
 
-		szEncrypted = NES::NESB0(szText, szKey);
+		szEncrypted = BMP::BM_B0(szText, szKey);
 		Sleep(10);
-		szEncrypted01 = NES::NESB0(szText, szKey);
+		szEncrypted01 = BMP::BM_B0(szText, szKey);
 		Sleep(10);
-		szEncrypted02 = NES::NESB0(szText, szKey);
+		szEncrypted02 = BMP::BM_B0(szText, szKey);
 		Sleep(10);
-		szEncrypted03 = NES::NESB0(szText, szKey);
-		szDecrypted = NES::NESB1(szEncrypted, szKey);
-		szDecrypted01 = NES::NESB1(szEncrypted01, szKey);
-		szDecrypted02 = NES::NESB1(szEncrypted02, szKey);
-		szDecrypted03 = NES::NESB1(szEncrypted03, szKey);
+		szEncrypted03 = BMP::BM_B0(szText, szKey);
+		szDecrypted = BMP::BM_B1(szEncrypted, szKey);
+		szDecrypted01 = BMP::BM_B1(szEncrypted01, szKey);
+		szDecrypted02 = BMP::BM_B1(szEncrypted02, szKey);
+		szDecrypted03 = BMP::BM_B1(szEncrypted03, szKey);
 
 
 		COUT << "Encrypted(B_00): ";
@@ -117,17 +117,17 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
 
-		szEncrypted = NES::NESC0(szText, szKey);
+		szEncrypted = BMP::BM_C0(szText, szKey);
 		Sleep(10);
-		szEncrypted01 = NES::NESC0(szText, szKey);
+		szEncrypted01 = BMP::BM_C0(szText, szKey);
 		Sleep(10);
-		szEncrypted02 = NES::NESC0(szText, szKey);
+		szEncrypted02 = BMP::BM_C0(szText, szKey);
 		Sleep(10);
-		szEncrypted03 = NES::NESC0(szText, szKey);
-		szDecrypted = NES::NESC1(szEncrypted, szKey);
-		szDecrypted01 = NES::NESC1(szEncrypted01, szKey);
-		szDecrypted02 = NES::NESC1(szEncrypted02, szKey);
-		szDecrypted03 = NES::NESC1(szEncrypted03, szKey);
+		szEncrypted03 = BMP::BM_C0(szText, szKey);
+		szDecrypted = BMP::BM_C1(szEncrypted, szKey);
+		szDecrypted01 = BMP::BM_C1(szEncrypted01, szKey);
+		szDecrypted02 = BMP::BM_C1(szEncrypted02, szKey);
+		szDecrypted03 = BMP::BM_C1(szEncrypted03, szKey);
 
 		COUT << "Encrypted(C_00): ";
 		COUT << szEncrypted << ENDL;
