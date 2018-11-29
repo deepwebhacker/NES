@@ -96,7 +96,6 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		szDecrypted02 = BMP::BM_B1(szEncrypted02, szKey);
 		szDecrypted03 = BMP::BM_B1(szEncrypted03, szKey);
 
-
 		COUT << "Encrypted(B_00): ";
 		COUT << szEncrypted << ENDL;
 		COUT << "Encrypted(B_01): ";
@@ -150,13 +149,9 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << "Decrypted(C_03): ";
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
-		COUT << ENDL;
 
 		std::string szMegaEncrypted;
 		std::string szMegaDecrypted;
-
-		std::string X = "HELLO!";
-		
 
 		szMegaEncrypted = BMP::BM_A0(szText, szKey);
 		szMegaEncrypted = NString::HexString(szMegaEncrypted);
@@ -183,14 +178,12 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		szMegaEncrypted = NString::HexString(szMegaEncrypted);
 
 		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
+		NFile::WriteAllText("Normal-Out.bin", szMegaEncrypted);
+		
 		szMegaEncrypted = NString::HexString(szMegaEncrypted);
 		NFile::WriteAllText("Hex-Out.bin", szMegaEncrypted);
 
-		// Decryption
-
 		szMegaEncrypted = NString::NormalString(szMegaEncrypted);
-		NFile::WriteAllText("Normal-Out.bin", szMegaEncrypted);
-
 		szMegaDecrypted = BMP::BM_C1(szMegaEncrypted, szKey);
 
 		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
@@ -217,12 +210,10 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
 		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
 
-
 		COUT << "Super Encryption: ";
-		//COUT << szMegaEncrypted << ENDL;
 		COUT << "Super Decryption: ";
 		COUT << szMegaDecrypted << ENDL;
-
+		COUT << ENDL;
 	}
 	return S_OK;
 }
