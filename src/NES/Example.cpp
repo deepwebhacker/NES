@@ -1,11 +1,17 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
-// Pipeline Guidelines:
-// A: A0 and A1 are free to use and your go-to methods when you want a fast and lite encryption.
-// B: Do not use B1 when encrypting your data, it will corrupt it.
-//	: B1 is only meant for decryption.
-// C: Do not use C1 when encrypting your data, it will corrupt it
-//	: C1 is only meant of decryption.
+/************************************************\
+Pipeline Guidelines:
+A: A0 and A1 are free to use and your go-to methods when you 
+want a fast and lite encryption.
+
+B: Do not use B1 when encrypting your data, it will corrupt it.
+B1 is only meant for decryption.
+
+C: Do not use C1 when encrypting your data, it will corrupt it
+C1 is only meant of decryption.
+
+\************************************************/
 
 #include "Precompiled.h"
 #include "NES.h"
