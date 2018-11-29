@@ -59,5 +59,11 @@
     <ClInclude Include="NTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NWin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
