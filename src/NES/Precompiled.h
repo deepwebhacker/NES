@@ -22,6 +22,7 @@
 typedef char**			NStrArray;
 typedef int				NINT;
 typedef bool			NBOOL;
+typedef unsigned char	BYTE;
 
 // Custom Definitions
 #define FILL			auto
