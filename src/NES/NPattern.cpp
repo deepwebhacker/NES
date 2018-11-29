@@ -37,63 +37,63 @@ std::string NPattern::Text_Perfom(std::string text, std::string key)
 	std::string intext = text;
 	for (auto& p : m_patterns)
 	{
-		if (p == "TA0")
+		if (p == "A0")
 		{
-			intext = NES::TEXT_NESA0(intext, key);
+			intext = NES::NESA0(intext, key);
 		}
-		else if (p == "TA1")
+		else if (p == "A1")
 		{
-			intext = NES::TEXT_NESA1(intext, key);
+			intext = NES::NESA1(intext, key);
 		}
-		else if (p == "TB0")
+		else if (p == "B0")
 		{
-			intext = NES::TEXT_NESB0(intext, key);
+			intext = NES::NESB0(intext, key);
 		}
-		else if (p == "TB1")
+		else if (p == "B1")
 		{
-			intext = NES::TEXT_NESB1(intext, key);
+			intext = NES::NESB1(intext, key);
 		}
-		else if (p == "TC0")
+		else if (p == "C0")
 		{
-			intext = NES::TEXT_NESC0(intext, key);
+			intext = NES::NESC0(intext, key);
 		}
-		else if (p == "TC1")
+		else if (p == "C1")
 		{
-			intext = NES::TEXT_NESC1(intext, key);
+			intext = NES::NESC1(intext, key);
 		}
 	}
 	return intext;
 }
 
-std::vector<char> NPattern::Data_Perform(std::vector<char> data, std::string key)
+std::vector<BYTE> NPattern::Data_Perform(std::vector<BYTE> data, std::string key)
 {
-	std::vector<char> indata;
+	std::vector<BYTE> indata;
 	for (auto& p : m_patterns)
 	{
-		//if (p == "DA0")
-		//{
-		//	indata = NES::DATA_NESA0(indata, key);
-		//}
-		//else if (p == "DA1")
-		//{
-		//	indata = NES::DATA_NESA1(indata, key);
-		//}
-		//else if (p == "DB0")
-		//{
-		//	indata = NES::DATA_NESB0(indata, key);
-		//}
-		//else if (p == "DB1")
-		//{
-		//	indata = NES::DATA_NESB1(indata, key);
-		//}
-		//else if (p == "DC0")
-		//{
-		//	indata = NES::DATA_NESC0(indata, key);
-		//}
-		//else if (p == "DC1")
-		//{
-		//	indata = NES::DATA_NESC1(indata, key);
-		//}
+		if (p == "A0")
+		{
+			indata = NES::NESA0(data, key);
+		}
+		else if (p == "A1")
+		{
+			indata = NES::NESA1(data, key);
+		}
+		else if (p == "B0")
+		{
+			indata = NES::NESB0(data, key);
+		}
+		else if (p == "B1")
+		{
+			indata = NES::NESB1(data, key);
+		}
+		else if (p == "C0")
+		{
+			indata = NES::NESC0(data, key);
+		}
+		else if (p == "C1")
+		{
+			indata = NES::NESC1(data, key);
+		}
 	}
 	return indata;
 }

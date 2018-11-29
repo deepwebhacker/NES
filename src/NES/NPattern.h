@@ -14,7 +14,7 @@ public:
 	int Check(void);
 
 	std::string Text_Perfom(std::string text, std::string key);
-	std::vector<char> Data_Perform(std::vector<char> data, std::string key);
+	std::vector<BYTE> Data_Perform(std::vector<BYTE> data, std::string key);
 
 private:
 	std::vector<std::string> m_patterns;
