@@ -24,6 +24,7 @@ namespace NString
 	std::string HexString(const std::string& in_s);
 	std::string NormalString(const std::string& in_hex);
 
+	std::string Replace(std::string in_s, unsigned int index_a, unsigned int index_b);
 }
 
 #endif // !_N_STRING_H_

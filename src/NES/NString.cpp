@@ -4,7 +4,6 @@
 
 namespace NString
 {
-	// c_str
 	char* ToUpper(char* temp)
 	{
 		char* retc = temp;
@@ -45,7 +44,6 @@ namespace NString
 		return retc;
 	}
 
-	// std::string
 	std::string ToUpper(std::string temp)
 	{
 		int i = 0;
@@ -80,7 +78,6 @@ namespace NString
 		return temp;
 	}
 
-	// std::vector
 	std::vector<std::string> Split(std::string in_s, const std::string& delim)
 	{
 		std::vector <std::string> retvec;
@@ -120,5 +117,22 @@ namespace NString
 			newString.push_back(chr);
 		}
 		return newString;
+	}
+
+	std::string Replace(std::string in_s ,unsigned int index_a, unsigned int index_b)
+	{
+		if (index_a >= in_s.length() || index_b >= in_s.length())
+		{
+			return in_s;
+		}
+		else if (index_a == index_b)
+		{
+			return in_s;
+		}
+
+		char tmp = in_s[index_a];
+		in_s[index_a] = in_s[index_b];
+		in_s[index_b] = tmp;
+		return in_s;
 	}
 }
