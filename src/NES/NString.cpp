@@ -109,4 +109,16 @@ namespace NString
 
 		return stream.str();
 	}
+
+	std::string NormalString(const std::string& in_hex)
+	{
+		std::string newString;
+		for (int i = 0; i< in_hex.length(); i += 2)
+		{
+			std::string byte = in_hex.substr(i, 2);
+			char chr = (char)(int)strtol(byte.c_str(), NULL, 16);
+			newString.push_back(chr);
+		}
+		return newString;
+	}
 }

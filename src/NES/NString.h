@@ -22,6 +22,8 @@ namespace NString
 	std::vector<std::string> Split(std::string in_s, const std::string& delim);
 
 	std::string HexString(const std::string& in_s);
+	std::string NormalString(const std::string& in_hex);
+
 }
 
 #endif // !_N_STRING_H_
