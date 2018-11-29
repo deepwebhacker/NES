@@ -97,28 +97,42 @@ namespace NString
 
 	std::string HexString(const std::string& in_s)
 	{
-		std::stringstream stream;
+		static const char* const lut = "0123456789ABCDEF";
+		size_t len = in_s.length();
 
-		for (size_t i = 0; i < in_s.length(); i++)
+		std::string output;
+		output.reserve(2 * len);
+		for (size_t i = 0; i < len; i++)
 		{
-			stream << std::hex << (int)in_s[i];
+			const unsigned char c = in_s[i];
+			output.push_back(lut[c >> 4]);
+			output.push_back(lut[c & 15]);
 		}
-
-		return stream.str();
+		return output;
 	}
 
-	std::string NormalString(const std::string& in_hex)
+	std::string NormalString(const std::string& in_s)
 	{
-		std::string newString;
-		for (int i = 0; i< in_hex.length(); i += 2)
-		{
-			std::string byte = in_hex.substr(i, 2);
-			char chr = (char)(int)strtol(byte.c_str(), NULL, 16);
-			newString.push_back(chr);
-		}
-		return newString;
-	}
+		static const char* const lut = "0123456789ABCDEF";
+		size_t len = in_s.length();
+		if (len & 1) throw std::invalid_argument("odd length");
 
+		std::string output;
+		output.reserve(len / 2);
+		for (size_t i = 0; i + 1 < len; i += 2)
+		{
+			char a = in_s[i];
+			const char* p = std::lower_bound(lut, lut + 16, a);
+			if (*p != a) throw std::invalid_argument("not a hex digit");
+
+			char b = in_s[i + 1];
+			const char* q = std::lower_bound(lut, lut + 16, b);
+			if (*q != b) throw std::invalid_argument("not a hex digit");
+
+			output.push_back(((p - lut) << 4) | (q - lut));
+		}
+		return output;
+	}
 	std::string Replace(std::string in_s ,unsigned int index_a, unsigned int index_b)
 	{
 		if (index_a >= in_s.length() || index_b >= in_s.length())

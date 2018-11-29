@@ -8,6 +8,8 @@
 #include <vector>
 #include <iomanip>
 #include <sstream>
+#include <algorithm>
+#include <stdexcept>
 
 namespace NString
 {
