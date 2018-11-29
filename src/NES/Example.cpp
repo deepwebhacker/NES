@@ -13,16 +13,15 @@
 #include "NPattern.h"
 
 #include <iostream>
-#include <Windows.h>
 
+#include "NWin.h"
 #include "NTime.h"
 
-FILL main(INT argc, NStrArray argv) -> INT
+FILL main(NINT argc, NStrArray argv) -> NINT
 {
 	UNREFERENCED_PARAMETER(argc);
 	UNREFERENCED_PARAMETER(argv);
-
-
+	
 
 	std::string szText;
 	std::string szKey;
