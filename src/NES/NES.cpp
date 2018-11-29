@@ -4,9 +4,9 @@
 #include "NTime.h"
 #include "NRandom.h"
 
-namespace NES
+namespace BMP
 {
-	std::string NESA0(std::string text, std::string key)
+	std::string BM_A0(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -47,7 +47,7 @@ namespace NES
 		return returnStr;
 	}
 				
-	std::string NESA1(std::string text, std::string key)
+	std::string BM_A1(std::string text, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
@@ -82,7 +82,7 @@ namespace NES
 		return returnStr;
 	}
 
-	std::string NESB0(std::string text, std::string key)
+	std::string BM_B0(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -136,7 +136,7 @@ namespace NES
 		return returnStr;
 	}
 				
-	std::string NESB1(std::string text, std::string key)
+	std::string BM_B1(std::string text, std::string key)
 	{
 		std::vector<unsigned char> data;
 		unsigned char keyX = 0;
@@ -176,7 +176,7 @@ namespace NES
 		return returnStr;
 	}
 				
-	std::string NESC0(std::string text, std::string key)
+	std::string BM_C0(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -230,7 +230,7 @@ namespace NES
 		return returnStr;
 	}
 				
-	std::string NESC1(std::string text, std::string key)
+	std::string BM_C1(std::string text, std::string key)
 	{
 		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;
@@ -283,7 +283,7 @@ namespace NES
 		return returnStr;
 	}
 
-	std::vector<BYTE> NESA0(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_A0(std::vector<BYTE> data, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -319,7 +319,7 @@ namespace NES
 		return vec;
 	}
 
-	std::vector<BYTE> NESA1(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_A1(std::vector<BYTE> data, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
@@ -349,7 +349,7 @@ namespace NES
 		return vec;
 	}
 
-	std::vector<BYTE> NESB0(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_B0(std::vector<BYTE> data, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -398,7 +398,7 @@ namespace NES
 		return vec;
 	}
 
-	std::vector<BYTE> NESB1(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_B1(std::vector<BYTE> data, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		unsigned char keyX = 0;
@@ -431,7 +431,7 @@ namespace NES
 		return vec;
 	}
 
-	std::vector<BYTE> NESC0(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_C0(std::vector<BYTE> data, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -477,11 +477,11 @@ namespace NES
 			vec.push_back(b3);
 			vec.push_back(b4);
 		}
-		
+
 		return vec;
 	}
 
-	std::vector<BYTE> NESC1(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_C1(std::vector<BYTE> data, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> vecRem;
@@ -529,4 +529,24 @@ namespace NES
 		return vec;
 	}
 
+}
+
+std::string MOP::MO_A0(std::string in_s)
+{
+	int perc = (int)(double)((in_s.length() * 80) / 100);
+	for (size_t i = 0; i < perc - 1; i++)
+	{
+		in_s = NString::Replace(in_s, i, i + 1);
+	}
+	return in_s;
+}
+
+std::string MOP::MO_A1(std::string in_s)
+{
+	in_s = MO_A0(in_s);
+	in_s = MO_A0(in_s);
+	in_s = MO_A0(in_s);
+	in_s = MO_A0(in_s);
+	in_s = MO_A0(in_s);
+	return in_s;
 }
