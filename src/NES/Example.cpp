@@ -22,6 +22,7 @@ C1 is only meant of decryption.
 
 #include "NWin.h"
 #include "NTime.h"
+#include "NFile.h"
 
 FILL main(NINT argc, NStrArray argv) -> NINT
 {
@@ -150,6 +151,78 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
 		COUT << ENDL;
+
+		std::string szMegaEncrypted;
+		std::string szMegaDecrypted;
+
+		std::string X = "HELLO!";
+		
+
+		szMegaEncrypted = BMP::BM_A0(szText, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+
+		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::HexString(szMegaEncrypted);
+		NFile::WriteAllText("Hex-Out.bin", szMegaEncrypted);
+
+		// Decryption
+
+		szMegaEncrypted = NString::NormalString(szMegaEncrypted);
+		NFile::WriteAllText("Normal-Out.bin", szMegaEncrypted);
+
+		szMegaDecrypted = BMP::BM_C1(szMegaEncrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = NString::NormalString(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
+
+
+		COUT << "Super Encryption: ";
+		//COUT << szMegaEncrypted << ENDL;
+		COUT << "Super Decryption: ";
+		COUT << szMegaDecrypted << ENDL;
+
 	}
 	return S_OK;
 }
