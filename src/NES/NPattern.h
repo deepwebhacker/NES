@@ -4,7 +4,8 @@
 #define _N_PATTERN_H_
 
 #include "Precompiled.h"
-#include <string>
+#include "NString.h"
+
 #include <vector>
 
 class NPattern
@@ -13,11 +14,10 @@ public:
 	int Load(std::string path);
 	int Check(void);
 
-	std::string Text_Perfom(std::string text, std::string key);
-	std::vector<BYTE> Data_Perform(std::vector<BYTE> data, std::string key);
+	const std::vector<std::string> GrabPattern() const;
 
 private:
-	std::vector<std::string> m_patterns;
+	std::vector<std::string> pattern;
 };
 
 #endif // !_N_PATERN_H_

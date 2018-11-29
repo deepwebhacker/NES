@@ -7,15 +7,15 @@
 
 int NPattern::Load(std::string path)
 {
-	m_patterns = NFile::ReadAllLines(path);
+	pattern = NFile::ReadAllLines(path);
 	return Check();
 }
 
 int NPattern::Check(void)
 {
-	if (m_patterns.size() != 0)
+	if (pattern.size() != 0)
 	{
-		for (auto& p : m_patterns)
+		for (auto& p : pattern)
 		{
 			if (p != "A0" &&
 				p != "A1" &&
@@ -32,68 +32,7 @@ int NPattern::Check(void)
 	return E_ERR;
 }
 
-std::string NPattern::Text_Perfom(std::string text, std::string key)
+const std::vector<std::string> NPattern::GrabPattern() const
 {
-	std::string intext = text;
-	for (auto& p : m_patterns)
-	{
-		if (p == "A0")
-		{
-			intext = NES::NESA0(intext, key);
-		}
-		else if (p == "A1")
-		{
-			intext = NES::NESA1(intext, key);
-		}
-		else if (p == "B0")
-		{
-			intext = NES::NESB0(intext, key);
-		}
-		else if (p == "B1")
-		{
-			intext = NES::NESB1(intext, key);
-		}
-		else if (p == "C0")
-		{
-			intext = NES::NESC0(intext, key);
-		}
-		else if (p == "C1")
-		{
-			intext = NES::NESC1(intext, key);
-		}
-	}
-	return intext;
-}
-
-std::vector<BYTE> NPattern::Data_Perform(std::vector<BYTE> data, std::string key)
-{
-	std::vector<BYTE> indata;
-	for (auto& p : m_patterns)
-	{
-		if (p == "A0")
-		{
-			indata = NES::NESA0(data, key);
-		}
-		else if (p == "A1")
-		{
-			indata = NES::NESA1(data, key);
-		}
-		else if (p == "B0")
-		{
-			indata = NES::NESB0(data, key);
-		}
-		else if (p == "B1")
-		{
-			indata = NES::NESB1(data, key);
-		}
-		else if (p == "C0")
-		{
-			indata = NES::NESC0(data, key);
-		}
-		else if (p == "C1")
-		{
-			indata = NES::NESC1(data, key);
-		}
-	}
-	return indata;
+	return pattern;
 }
