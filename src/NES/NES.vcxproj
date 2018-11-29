@@ -123,6 +123,7 @@
     <ClCompile Include="NString.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="NHandler.h" />
     <ClInclude Include="NES.h" />
     <ClInclude Include="NFile.h" />
     <ClInclude Include="NKey.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="NRandom.h" />
     <ClInclude Include="NString.h" />
     <ClInclude Include="NTime.h" />
+    <ClInclude Include="NWin.h" />
     <ClInclude Include="Precompiled.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
