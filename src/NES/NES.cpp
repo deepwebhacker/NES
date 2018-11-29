@@ -104,6 +104,12 @@ namespace NES
 		}
 		keyX += time[0] + time[1] + time[2] + time[3];
 
+		keyX = abs(keyX);
+		if (keyX == 0)
+		{
+			keyX += 2;
+		}
+
 		for (int i = 0; i < (int)text.length(); i++)
 		{
 			unsigned long olmessage = (unsigned char)text[i] * keyX;
@@ -139,6 +145,12 @@ namespace NES
 			keyX += (unsigned char)key[i];
 		}
 		keyX += text[0] + text[1] + text[2] + text[3];
+		
+		keyX = abs(keyX);
+		if (keyX == 0)
+		{
+			keyX += 2;
+		}
 
 		for (int i = 4; i < (int)text.length(); i += 5)
 		{
@@ -359,6 +371,12 @@ namespace NES
 		}
 		keyX += time[0] + time[1] + time[2] + time[3];
 
+		keyX = abs(keyX);
+		if (keyX == 0)
+		{
+			keyX += 2;
+		}
+
 		for (int i = 0; i < (int)data.size(); i++)
 		{
 			unsigned long olmessage = (unsigned char)data[i] * keyX;
@@ -389,6 +407,12 @@ namespace NES
 			keyX += (unsigned char)key[i];
 		}
 		keyX += data[0] + data[1] + data[2] + data[3];
+
+		keyX = abs(keyX);
+		if (keyX == 0)
+		{
+			keyX += 2;
+		}
 
 		for (int i = 4; i < (int)data.size(); i += 5)
 		{
