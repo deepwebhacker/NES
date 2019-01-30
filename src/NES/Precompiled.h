@@ -1,4 +1,4 @@
-//© 2018 NIREX ALL RIGHTS RESERVED
+//© 2019 NIREX ALL RIGHTS RESERVED
 
 #ifndef _N_PRECOMPILED_H_
 #define _N_PRECOMPILED_H_
@@ -10,7 +10,7 @@
 #define PLHDR_VAL		""
 #define STR_NEWLN		10
 #define ENV_NEWLN		std::endl
-#define STR_CPRGT		"//© 2018 NIREX ALL RIGHTS RESERVED"
+#define STR_CPRGT		"//© 2019 NIREX ALL RIGHTS RESERVED"
 
 // iostream 
 #define ENDL			std::endl
