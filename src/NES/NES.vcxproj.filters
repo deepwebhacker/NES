@@ -33,6 +33,9 @@
     <ClCompile Include="NKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NRandom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NFile.h">
