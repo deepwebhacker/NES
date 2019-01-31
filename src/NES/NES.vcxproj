@@ -120,6 +120,7 @@
     <ClCompile Include="NFile.cpp" />
     <ClCompile Include="NKey.cpp" />
     <ClCompile Include="NPattern.cpp" />
+    <ClCompile Include="NRandom.cpp" />
     <ClCompile Include="NString.cpp" />
   </ItemGroup>
   <ItemGroup>
