@@ -20,6 +20,5 @@ NRandom::~NRandom(void)
 int NRandom::GenerateRandom(void)
 {
 	std::mt19937::result_type random_number = (*udist)(rng);
-
 	return random_number;
 }
