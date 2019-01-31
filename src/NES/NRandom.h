@@ -8,18 +8,14 @@
 class NRandom
 {
 public:
-	static inline unsigned int GetNumber(unsigned int min, unsigned int max, unsigned int seed)
-	{
-		std::uniform_int_distribution<std::mt19937::result_type> udist(min, max);
-		std::mt19937 rng;
+	NRandom(int min, int max, int seed = 0);
+	~NRandom(void);
 
-		std::mt19937::result_type const seedval = seed;
-		rng.seed(seedval);
+	int GenerateRandom(void);
 
-		std::mt19937::result_type random_number = udist(rng);
-
-		return random_number;
-	}
+private:
+	std::mt19937 rng;
+	std::uniform_int_distribution<std::mt19937::result_type>* udist;
 };
 
 #endif // !_N_RANDOM_H_
