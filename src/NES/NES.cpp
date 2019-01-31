@@ -10,11 +10,12 @@ namespace BMP
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
-		 time[0] *= NRandom::GetNumber(100, 200, 1);
-		 time[1] *= NRandom::GetNumber(200, 300, 2);
-		 time[2] *= NRandom::GetNumber(300, 400, 3);
-		 time[3] *= NRandom::GetNumber(400, 500, 4);
-		
+		NRandom nr(100, 200);
+		time[0] *= nr.GenerateRandom();
+		time[1] *= nr.GenerateRandom();
+		time[2] *= nr.GenerateRandom();
+		time[3] *= nr.GenerateRandom();
+	
 		std::vector<unsigned char> vec;
 		int TimeIterator = 0;
 
@@ -86,10 +87,11 @@ namespace BMP
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
-		time[0] *= NRandom::GetNumber(170, 240, 5);
-		time[1] *= NRandom::GetNumber(270, 340, 6);
-		time[2] *= NRandom::GetNumber(370, 440, 7);
-		time[3] *= NRandom::GetNumber(470, 540, 8);
+		NRandom nr(100, 200);
+		time[0] *= nr.GenerateRandom();
+		time[1] *= nr.GenerateRandom();
+		time[2] *= nr.GenerateRandom();
+		time[3] *= nr.GenerateRandom();
 
 		std::vector<unsigned char> data;
 		data.push_back(time[0]);
@@ -180,10 +182,11 @@ namespace BMP
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
-		time[0] *= NRandom::GetNumber(170, 240, 5);
-		time[1] *= NRandom::GetNumber(270, 340, 6);
-		time[2] *= NRandom::GetNumber(370, 440, 7);
-		time[3] *= NRandom::GetNumber(470, 540, 8);
+		NRandom nr(100, 200);
+		time[0] *= nr.GenerateRandom();
+		time[1] *= nr.GenerateRandom();
+		time[2] *= nr.GenerateRandom();
+		time[3] *= nr.GenerateRandom();
 
 		std::vector<unsigned char> data;
 		data.push_back(time[0]);
@@ -287,10 +290,11 @@ namespace BMP
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
-		time[0] *= NRandom::GetNumber(100, 200, 1);
-		time[1] *= NRandom::GetNumber(200, 300, 2);
-		time[2] *= NRandom::GetNumber(300, 400, 3);
-		time[3] *= NRandom::GetNumber(400, 500, 4);
+		NRandom nr(100, 200);
+		time[0] *= nr.GenerateRandom();
+		time[1] *= nr.GenerateRandom();
+		time[2] *= nr.GenerateRandom();
+		time[3] *= nr.GenerateRandom();
 
 		std::vector<unsigned char> vec;
 		int TimeIterator = 0;
@@ -353,10 +357,11 @@ namespace BMP
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
-		time[0] *= NRandom::GetNumber(170, 240, 5);
-		time[1] *= NRandom::GetNumber(270, 340, 6);
-		time[2] *= NRandom::GetNumber(370, 440, 7);
-		time[3] *= NRandom::GetNumber(470, 540, 8);
+		NRandom nr(100, 200);
+		time[0] *= nr.GenerateRandom();
+		time[1] *= nr.GenerateRandom();
+		time[2] *= nr.GenerateRandom();
+		time[3] *= nr.GenerateRandom();
 
 		std::vector<unsigned char> vec;
 		vec.push_back(time[0]);
@@ -435,10 +440,11 @@ namespace BMP
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
-		time[0] *= NRandom::GetNumber(170, 240, 5);
-		time[1] *= NRandom::GetNumber(270, 340, 6);
-		time[2] *= NRandom::GetNumber(370, 440, 7);
-		time[3] *= NRandom::GetNumber(470, 540, 8);
+		NRandom nr(100, 200);
+		time[0] *= nr.GenerateRandom();
+		time[1] *= nr.GenerateRandom();
+		time[2] *= nr.GenerateRandom();
+		time[3] *= nr.GenerateRandom();
 
 		std::vector<unsigned char> vec;
 		vec.push_back(time[0]);
