@@ -155,62 +155,24 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 
 		szMegaEncrypted = BMP::BM_A0(szText, szKey);
 		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-
-		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
-		NFile::WriteAllText("Normal-Out.bin", szMegaEncrypted);
 		
+		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
 		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-		NFile::WriteAllText("Hex-Out.bin", szMegaEncrypted);
+		
+		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
+		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
 
 		szMegaEncrypted = NString::FromHex(szMegaEncrypted);
 		szMegaDecrypted = BMP::BM_C1(szMegaEncrypted, szKey);
 
 		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
-		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
-		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
 		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
-		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
-		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
-		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
-		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
 
 		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
 		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
 
 		COUT << "Super Encryption: ";
+		COUT << szMegaEncrypted << ENDL;
 		COUT << "Super Decryption: ";
 		COUT << szMegaDecrypted << ENDL;
 		COUT << ENDL;
