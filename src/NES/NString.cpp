@@ -294,7 +294,7 @@ namespace NString
 		return converter.to_bytes(in);
 	}
 
-	std::vector<std::string> ToVector(std::string temp)
+	std::vector<std::string> ToVector(const std::string temp)
 	{
 		return SplitNoEmpty(temp, "\n");
 	}
@@ -338,7 +338,8 @@ namespace NString
 
 	std::string TrimBegin(std::string temp)
 	{
-		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) {
+		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) 
+		{
 			return !std::isspace(ch);
 		}));
 		return temp;
@@ -346,7 +347,8 @@ namespace NString
 
 	std::wstring TrimBegin(std::wstring temp)
 	{
-		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) {
+		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) 
+		{
 			return !std::isspace(ch);
 		}));
 		return temp;
@@ -354,7 +356,8 @@ namespace NString
 
 	std::string TrimEnd(std::string temp)
 	{
-		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) {
+		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) 
+		{
 			return !std::isspace(ch);
 		}).base(), temp.end());
 		return temp;
@@ -362,7 +365,8 @@ namespace NString
 
 	std::wstring TrimEnd(std::wstring temp)
 	{
-		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) {
+		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch)
+		{
 			return !std::isspace(ch);
 		}).base(), temp.end());
 		return temp;
