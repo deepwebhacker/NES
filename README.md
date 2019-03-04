@@ -8,7 +8,7 @@ Documentation may come soon.
 # THE WHY AND HOW OF IT
 
 This encryption method is made up of patterns, keychains, keypattenrs, time variable, mixers and most importantly pipelines.
-Each of the elements mentioned above plays a major role in the encryption/decryption of that you give it. 
+Each of the elements mentioned above plays a major role in the encryption/decryption of what you give it. 
 
 # COPYRIGHT INFO
 
