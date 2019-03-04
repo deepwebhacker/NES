@@ -4,9 +4,9 @@
 #include "NTime.h"
 #include "NRandom.h"
 
-namespace BMP
+namespace BP
 {
-	std::string BM_A0(std::string text, std::string key)
+	std::string EncryptA(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -48,7 +48,7 @@ namespace BMP
 		return returnStr;
 	}
 				
-	std::string BM_A1(std::string text, std::string key)
+	std::string DecryptA(std::string text, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
@@ -83,7 +83,7 @@ namespace BMP
 		return returnStr;
 	}
 
-	std::string BM_B0(std::string text, std::string key)
+	std::string EncryptB(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -138,7 +138,7 @@ namespace BMP
 		return returnStr;
 	}
 				
-	std::string BM_B1(std::string text, std::string key)
+	std::string DecryptB(std::string text, std::string key)
 	{
 		std::vector<unsigned char> data;
 		unsigned char keyX = 0;
@@ -179,7 +179,7 @@ namespace BMP
 	}
 				
 	// UNSTABLE
-	std::string BM_C0(std::string text, std::string key)
+	std::string EncryptC(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -234,7 +234,7 @@ namespace BMP
 		return returnStr;
 	}
 				
-	std::string BM_C1(std::string text, std::string key)
+	std::string DecryptC(std::string text, std::string key)
 	{
 		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;
@@ -287,7 +287,7 @@ namespace BMP
 		return returnStr;
 	}
 
-	std::vector<BYTE> BM_A0(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> EncryptA(const std::vector<BYTE>& inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -324,7 +324,7 @@ namespace BMP
 		return vec;
 	}
 
-	std::vector<BYTE> BM_A1(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> DecryptA(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
@@ -354,7 +354,7 @@ namespace BMP
 		return vec;
 	}
 
-	std::vector<BYTE> BM_B0(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> EncryptB(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -403,8 +403,8 @@ namespace BMP
 
 		return data;
 	}
-  
-	std::vector<BYTE> BM_B1(std::vector<BYTE> inData, std::string key)
+
+	std::vector<BYTE> DecryptB(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> data;
 		unsigned char keyX = 0;
@@ -437,9 +437,9 @@ namespace BMP
 
 		return data;
 	}
-	
+
 	// UNSTABLE
-	std::vector<BYTE> BM_C0(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> EncryptC(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -489,8 +489,8 @@ namespace BMP
 
 		return data;
 	}
-  
-	std::vector<BYTE> BM_C1(std::vector<BYTE> inData, std::string key)
+
+	std::vector<BYTE> DecryptC(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;
@@ -539,7 +539,7 @@ namespace BMP
 	}
 }
 
-std::string MOP::MO_A0(std::string in_s)
+std::string MP::MixA(std::string in_s)
 {
 	int perc = (int)(double)((in_s.length() * 80) / 100);
 	for (size_t i = 0; i < perc - 1; i++)
@@ -549,12 +549,12 @@ std::string MOP::MO_A0(std::string in_s)
 	return in_s;
 }
 
-std::string MOP::MO_A1(std::string in_s)
+std::string MP::MegaMixA(std::string in_s)
 {
-	in_s = MO_A0(in_s);
-	in_s = MO_A0(in_s);
-	in_s = MO_A0(in_s);
-	in_s = MO_A0(in_s);
-	in_s = MO_A0(in_s);
+	in_s = MixA(in_s);
+	in_s = MixA(in_s);
+	in_s = MixA(in_s);
+	in_s = MixA(in_s);
+	in_s = MixA(in_s);
 	return in_s;
 }
