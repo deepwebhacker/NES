@@ -24,6 +24,26 @@ C1 is only meant of decryption.
 #include "NTime.h"
 #include "NFile.h"
 
+std::vector<BYTE> StrToVec(const std::string& in)
+{
+	std::vector<BYTE> outVec;
+	for (size_t i = 0; i < in.length(); i++)
+	{
+		outVec.push_back(in[i]);
+	}
+	return outVec;
+}
+
+std::string VecToStr(const std::vector<BYTE>& in)
+{
+	std::string outVal;
+	for (size_t i = 0; i < in.size(); i++)
+	{
+		outVal.push_back(in[i]);
+	}
+	return outVal;
+}
+
 FILL main(NINT argc, NStrArray argv) -> NINT
 {
 	while (true)
@@ -37,7 +57,7 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		std::string szEncrypted01;
 		std::string szEncrypted02;
 		std::string szEncrypted03;
-
+				   
 		std::string szDecrypted;
 		std::string szDecrypted01;
 		std::string szDecrypted02;
@@ -91,6 +111,7 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		szEncrypted02 = BMP::BM_B0(szText, szKey);
 		Sleep(10);
 		szEncrypted03 = BMP::BM_B0(szText, szKey);
+
 		szDecrypted = BMP::BM_B1(szEncrypted, szKey);
 		szDecrypted01 = BMP::BM_B1(szEncrypted01, szKey);
 		szDecrypted02 = BMP::BM_B1(szEncrypted02, szKey);
@@ -150,31 +171,24 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
 
-		std::string szMegaEncrypted;
-		std::string szMegaDecrypted;
-
-		szMegaEncrypted = BMP::BM_A0(szText, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-		
+		std::vector<BYTE> szMegaEncrypted = StrToVec(szText);
+		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
 		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
-		
 		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
-		szMegaEncrypted = NString::ToHex(szMegaEncrypted);
+		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
+		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
+		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
 
-		szMegaEncrypted = NString::FromHex(szMegaEncrypted);
-		szMegaDecrypted = BMP::BM_C1(szMegaEncrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
+		std::vector<BYTE> szMegaDecrypted = szMegaEncrypted;
+		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
 		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
-
-		szMegaDecrypted = NString::FromHex(szMegaDecrypted);
+		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
+		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
+		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
 		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
 
-		COUT << "Super Encryption: ";
-		COUT << szMegaEncrypted << ENDL;
 		COUT << "Super Decryption: ";
-		COUT << szMegaDecrypted << ENDL;
+		COUT << VecToStr(szMegaDecrypted) << ENDL;
 		COUT << ENDL;
 	}
 	return S_OK;
