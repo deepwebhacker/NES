@@ -11,10 +11,10 @@ namespace BMP
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
 		NRandom nr(100, 200);
-		time[0] *= nr.GenerateRandom();
-		time[1] *= nr.GenerateRandom();
-		time[2] *= nr.GenerateRandom();
-		time[3] *= nr.GenerateRandom();
+		time[0] += nr.GenerateRandom();
+		time[1] += nr.GenerateRandom();
+		time[2] += nr.GenerateRandom();
+		time[3] += nr.GenerateRandom();
 	
 		std::vector<unsigned char> vec;
 		int TimeIterator = 0;
@@ -88,10 +88,10 @@ namespace BMP
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
 		NRandom nr(100, 200);
-		time[0] *= nr.GenerateRandom();
-		time[1] *= nr.GenerateRandom();
-		time[2] *= nr.GenerateRandom();
-		time[3] *= nr.GenerateRandom();
+		time[0] += nr.GenerateRandom();
+		time[1] += nr.GenerateRandom();
+		time[2] += nr.GenerateRandom();
+		time[3] += nr.GenerateRandom();
 
 		std::vector<unsigned char> data;
 		data.push_back(time[0]);
@@ -104,9 +104,9 @@ namespace BMP
 		{
 			keyX += (unsigned char)key[i];
 		}
-		keyX += time[0] + time[1] + time[2] + time[3];
 
-		keyX = abs(keyX);
+		keyX = data[0] + data[1] + data[2] + data[3];
+
 		if (keyX == 0)
 		{
 			keyX += 2;
@@ -146,9 +146,9 @@ namespace BMP
 		{
 			keyX += (unsigned char)key[i];
 		}
-		keyX += text[0] + text[1] + text[2] + text[3];
-		
-		keyX = abs(keyX);
+
+		keyX = text[0] + text[1] + text[2] + text[3];
+
 		if (keyX == 0)
 		{
 			keyX += 2;
@@ -178,15 +178,16 @@ namespace BMP
 		return returnStr;
 	}
 				
+	// UNSTABLE
 	std::string BM_C0(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
 		NRandom nr(100, 200);
-		time[0] *= nr.GenerateRandom();
-		time[1] *= nr.GenerateRandom();
-		time[2] *= nr.GenerateRandom();
-		time[3] *= nr.GenerateRandom();
+		time[0] += nr.GenerateRandom();
+		time[1] += nr.GenerateRandom();
+		time[2] += nr.GenerateRandom();
+		time[3] += nr.GenerateRandom();
 
 		std::vector<unsigned char> data;
 		data.push_back(time[0]);
@@ -286,15 +287,15 @@ namespace BMP
 		return returnStr;
 	}
 
-	std::vector<BYTE> BM_A0(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_A0(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
 		NRandom nr(100, 200);
-		time[0] *= nr.GenerateRandom();
-		time[1] *= nr.GenerateRandom();
-		time[2] *= nr.GenerateRandom();
-		time[3] *= nr.GenerateRandom();
+		time[0] += nr.GenerateRandom();
+		time[1] += nr.GenerateRandom();
+		time[2] += nr.GenerateRandom();
+		time[3] += nr.GenerateRandom();
 
 		std::vector<unsigned char> vec;
 		int TimeIterator = 0;
@@ -304,13 +305,13 @@ namespace BMP
 			vec.push_back(time[i]);
 		}
 
-		for (int i = 0; i < (int)data.size(); i++)
+		for (int i = 0; i < (int)inData.size(); i++)
 		{
 			char l;
 			unsigned char TimeKey = time[TimeIterator];
 			for (int j = 0; j < (int)key.length(); j++)
 			{
-				l = static_cast<unsigned char>(data[i] + (2 * key[j] * pow(key[j], 2) + TimeKey));
+				l = static_cast<unsigned char>(inData[i] + (2 * key[j] * pow(key[j], 2) + TimeKey));
 
 			}
 			TimeIterator++;
@@ -323,25 +324,25 @@ namespace BMP
 		return vec;
 	}
 
-	std::vector<BYTE> BM_A1(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_A1(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
 
 		int TimeIterator = 0;
 
-		time.push_back(data[0]);
-		time.push_back(data[1]);
-		time.push_back(data[2]);
-		time.push_back(data[3]);
+		time.push_back(inData[0]);
+		time.push_back(inData[1]);
+		time.push_back(inData[2]);
+		time.push_back(inData[3]);
 
-		for (int i = 4; i < (int)data.size(); i++)
+		for (int i = 4; i < (int)inData.size(); i++)
 		{
 			char l;
 			unsigned char TimeKey = time[TimeIterator];
 			for (int j = 0; j < (int)key.length(); j++)
 			{
-				l = static_cast<unsigned char>(data[i] - (2 * key[j] * pow(key[j], 2) + TimeKey));
+				l = static_cast<unsigned char>(inData[i] - (2 * key[j] * pow(key[j], 2) + TimeKey));
 			}
 			TimeIterator++;
 			if (TimeIterator == time.size())
@@ -353,38 +354,38 @@ namespace BMP
 		return vec;
 	}
 
-	std::vector<BYTE> BM_B0(std::vector<BYTE> data, std::string key)
+	std::vector<BYTE> BM_B0(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
 		NRandom nr(100, 200);
-		time[0] *= nr.GenerateRandom();
-		time[1] *= nr.GenerateRandom();
-		time[2] *= nr.GenerateRandom();
-		time[3] *= nr.GenerateRandom();
+		time[0] += nr.GenerateRandom();
+		time[1] += nr.GenerateRandom();
+		time[2] += nr.GenerateRandom();
+		time[3] += nr.GenerateRandom();
 
-		std::vector<unsigned char> vec;
-		vec.push_back(time[0]);
-		vec.push_back(time[1]);
-		vec.push_back(time[2]);
-		vec.push_back(time[3]);
+		std::vector<unsigned char> data;
+		data.push_back(time[0]);
+		data.push_back(time[1]);
+		data.push_back(time[2]);
+		data.push_back(time[3]);
 
 		unsigned char keyX = 0;
 		for (int i = 0; i < (int)key.length(); i++)
 		{
 			keyX += (unsigned char)key[i];
 		}
-		keyX += time[0] + time[1] + time[2] + time[3];
 
-		keyX = abs(keyX);
+		keyX = data[0] + data[1] + data[2] + data[3];
+
 		if (keyX == 0)
 		{
 			keyX += 2;
 		}
 
-		for (int i = 0; i < (int)data.size(); i++)
+		for (int i = 0; i < (int)inData.size(); i++)
 		{
-			unsigned long olmessage = (unsigned char)data[i] * keyX;
+			unsigned long olmessage = (unsigned char)inData[i] * keyX;
 			unsigned long numerator = olmessage / 255;
 			unsigned long remainder = olmessage % 255;
 
@@ -393,64 +394,66 @@ namespace BMP
 			unsigned char b3 = ((numerator >> 16) & 0xFF);
 			unsigned char b4 = ((numerator >> 24) & 0xFF);
 
-			vec.push_back((unsigned char)remainder);
-			vec.push_back((unsigned char)b1);
-			vec.push_back((unsigned char)b2);
-			vec.push_back((unsigned char)b3);
-			vec.push_back((unsigned char)b4);
+			data.push_back((unsigned char)remainder);
+			data.push_back((unsigned char)b1);
+			data.push_back((unsigned char)b2);
+			data.push_back((unsigned char)b3);
+			data.push_back((unsigned char)b4);
 		}
 
-		return vec;
+		return data;
 	}
-
-	std::vector<BYTE> BM_B1(std::vector<BYTE> data, std::string key)
+  
+	std::vector<BYTE> BM_B1(std::vector<BYTE> inData, std::string key)
 	{
-		std::vector<unsigned char> vec;
+		std::vector<unsigned char> data;
 		unsigned char keyX = 0;
 		for (int i = 0; i < (int)key.length(); i++)
 		{
 			keyX += (unsigned char)key[i];
 		}
-		keyX += data[0] + data[1] + data[2] + data[3];
 
-		keyX = abs(keyX);
+		keyX = inData[0] + inData[1] + inData[2] + inData[3];
+
 		if (keyX == 0)
 		{
 			keyX += 2;
 		}
 
-		for (int i = 4; i < (int)data.size(); i += 5)
+		for (int i = 4; i < (int)inData.size(); i += 5)
 		{
-			unsigned long remainder = (unsigned char)data[i];
+			unsigned long remainder = (unsigned char)inData[i];
 			unsigned long numerator
-				= ((unsigned long)(((unsigned char)data[i + 4]) << 24)
-					| (unsigned long)(((unsigned char)data[i + 3]) << 16)
-					| (unsigned long)(((unsigned char)data[i + 2]) << 8)
-					| (unsigned long)((unsigned char)data[i + 1]));
+				= ((unsigned long)(((unsigned char)inData[i + 4]) << 24)
+					| (unsigned long)(((unsigned char)inData[i + 3]) << 16)
+					| (unsigned long)(((unsigned char)inData[i + 2]) << 8)
+					| (unsigned long)((unsigned char)inData[i + 1]));
+
 
 			unsigned long olmessage = (numerator * 255) + remainder;
 			unsigned char letter = (unsigned char)(olmessage / keyX);
-			vec.push_back(letter);
+			data.push_back(letter);
 		}
 
-		return vec;
+		return data;
 	}
-
-	std::vector<BYTE> BM_C0(std::vector<BYTE> data, std::string key)
+	
+	// UNSTABLE
+	std::vector<BYTE> BM_C0(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
 		NRandom nr(100, 200);
-		time[0] *= nr.GenerateRandom();
-		time[1] *= nr.GenerateRandom();
-		time[2] *= nr.GenerateRandom();
-		time[3] *= nr.GenerateRandom();
+		time[0] += nr.GenerateRandom();
+		time[1] += nr.GenerateRandom();
+		time[2] += nr.GenerateRandom();
+		time[3] += nr.GenerateRandom();
 
-		std::vector<unsigned char> vec;
-		vec.push_back(time[0]);
-		vec.push_back(time[1]);
-		vec.push_back(time[2]);
-		vec.push_back(time[3]);
+		std::vector<unsigned char> data;
+		data.push_back(time[0]);
+		data.push_back(time[1]);
+		data.push_back(time[2]);
+		data.push_back(time[3]);
 
 		unsigned char KeyX = 0;
 		for (size_t i = 0; i < key.length(); i++)
@@ -461,9 +464,9 @@ namespace BMP
 		KeyX /= key.length();
 		float SqKeyX = sqrt(KeyX);
 
-		for (int i = 0; i < (int)data.size(); i++)
+		for (int i = 0; i < (int)inData.size(); i++)
 		{
-			float SqText = sqrt(data[i]);
+			float SqText = sqrt(inData[i]);
 			float mainC = (SqText + SqKeyX);
 			mainC *= 1000000;
 			float mainCX = sqrt(mainC);
@@ -477,19 +480,19 @@ namespace BMP
 			unsigned char b3 = ((numerator >> 16) & 0xFF);
 			unsigned char b4 = ((numerator >> 24) & 0xFF);
 
-			vec.push_back(remainder);
-			vec.push_back(b1);
-			vec.push_back(b2);
-			vec.push_back(b3);
-			vec.push_back(b4);
+			data.push_back(remainder);
+			data.push_back(b1);
+			data.push_back(b2);
+			data.push_back(b3);
+			data.push_back(b4);
 		}
 
-		return vec;
+		return data;
 	}
-
-	std::vector<BYTE> BM_C1(std::vector<BYTE> data, std::string key)
+  
+	std::vector<BYTE> BM_C1(std::vector<BYTE> inData, std::string key)
 	{
-		std::vector<unsigned char> vec;
+		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;
 		std::vector<unsigned long> vecNum;
 
@@ -498,19 +501,19 @@ namespace BMP
 		{
 			KeyX += key[i];
 		}
-		KeyX += data[0] + data[1] + data[2] + data[3];
+		KeyX += inData[0] + inData[1] + inData[2] + inData[3];
 		KeyX /= key.length();
 		float SqKeyX = sqrt(KeyX);
 
-		for (size_t i = 4; i < data.size(); i += 5)
+		for (size_t i = 4; i < inData.size(); i += 5)
 		{
-			unsigned char remainder = (unsigned char)data[i];
+			unsigned char remainder = (unsigned char)inData[i];
 
 			unsigned long numerator =
-				((unsigned long)(((unsigned char)data[i + 4]) << 24)
-					| (unsigned long)(((unsigned char)data[i + 3]) << 16)
-					| (unsigned long)(((unsigned char)data[i + 2]) << 8)
-					| (unsigned long)((unsigned char)data[i + 1]));
+				((unsigned long)(((unsigned char)inData[i + 4]) << 24)
+					| (unsigned long)(((unsigned char)inData[i + 3]) << 16)
+					| (unsigned long)(((unsigned char)inData[i + 2]) << 8)
+					| (unsigned long)((unsigned char)inData[i + 1]));
 
 			vecRem.push_back(remainder);
 			vecNum.push_back(numerator);
@@ -529,12 +532,11 @@ namespace BMP
 			TextD = round(TextD);
 
 			unsigned char TextN = (unsigned char)TextD;
-			vec.push_back(TextN);
+			data.push_back(TextN);
 		}
 
-		return vec;
+		return data;
 	}
-
 }
 
 std::string MOP::MO_A0(std::string in_s)
