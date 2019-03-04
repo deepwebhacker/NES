@@ -162,24 +162,38 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 
 		std::vector<BYTE> szMegaEncrypted = StrToVec(szText);
 
+		szMegaEncrypted = BP::EncryptC(szMegaEncrypted, szKey);
 		szMegaEncrypted = BP::EncryptA(szMegaEncrypted, szKey);
 		szMegaEncrypted = BP::EncryptB(szMegaEncrypted, szKey);
-		//szMegaEncrypted = BP::EncryptC(szMegaEncrypted, szKey);
 
 		szMegaEncrypted = BP::EncryptA(szMegaEncrypted, szKey);
 		szMegaEncrypted = BP::EncryptB(szMegaEncrypted, szKey);
-		//szMegaEncrypted = BP::EncryptC(szMegaEncrypted, szKey);
+
+		szMegaEncrypted = BP::EncryptA(szMegaEncrypted, szKey);
+		szMegaEncrypted = BP::EncryptB(szMegaEncrypted, szKey);
+
+		szMegaEncrypted = BP::EncryptA(szMegaEncrypted, szKey);
+		szMegaEncrypted = BP::EncryptB(szMegaEncrypted, szKey);
 
 		std::vector<BYTE> szMegaDecrypted = szMegaEncrypted;
 
-		//szMegaDecrypted = BP::DecryptC(szMegaDecrypted, szKey);
 		szMegaDecrypted = BP::DecryptB(szMegaDecrypted, szKey);
 		szMegaDecrypted = BP::DecryptA(szMegaDecrypted, szKey);
 
-		//szMegaDecrypted = BP::DecryptC(szMegaDecrypted, szKey);
 		szMegaDecrypted = BP::DecryptB(szMegaDecrypted, szKey);
 		szMegaDecrypted = BP::DecryptA(szMegaDecrypted, szKey);
 
+		szMegaDecrypted = BP::DecryptB(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptA(szMegaDecrypted, szKey);
+
+		szMegaDecrypted = BP::DecryptB(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptA(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptC(szMegaDecrypted, szKey);
+
+		
+		NFile::WriteAllText("out.txt", VecToStr(szMegaEncrypted));
+		COUT << "Super Encryption: ";
+		COUT << VecToStr(szMegaEncrypted) << ENDL;
 		COUT << "Super Decryption: ";
 		COUT << VecToStr(szMegaDecrypted) << ENDL;
 		COUT << ENDL;
