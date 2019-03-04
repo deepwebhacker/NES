@@ -1,18 +1,5 @@
 //© 2019 NIREX ALL RIGHTS RESERVED
 
-/************************************************\
-Pipeline Guidelines:
-A: A0 and A1 are free to use and your go-to methods when you 
-want a fast and lite encryption.
-
-B: Do not use B1 when encrypting your data, it will corrupt it.
-B1 is only meant for decryption.
-
-C: Do not use C1 when encrypting your data, it will corrupt it
-C1 is only meant of decryption.
-
-\************************************************/
-
 #include "Precompiled.h"
 #include "NES.h"
 #include "NString.h"
@@ -71,17 +58,18 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 
 		COUT << ENDL;
 
-		szEncrypted = BMP::BM_A0(szText, szKey);
+		szEncrypted = BP::EncryptA(szText, szKey);
 		Sleep(10);
-		szEncrypted01 = BMP::BM_A0(szText, szKey);
+		szEncrypted01 = BP::EncryptA(szText, szKey);
 		Sleep(10);
-		szEncrypted02 = BMP::BM_A0(szText, szKey);
+		szEncrypted02 = BP::EncryptA(szText, szKey);
 		Sleep(10);
-		szEncrypted03 = BMP::BM_A0(szText, szKey);
-		szDecrypted = BMP::BM_A1(szEncrypted, szKey);
-		szDecrypted01 = BMP::BM_A1(szEncrypted01, szKey);
-		szDecrypted02 = BMP::BM_A1(szEncrypted02, szKey);
-		szDecrypted03 = BMP::BM_A1(szEncrypted03, szKey);
+		szEncrypted03 = BP::EncryptA(szText, szKey);
+
+		szDecrypted = BP::DecryptA(szEncrypted, szKey);
+		szDecrypted01 = BP::DecryptA(szEncrypted01, szKey);
+		szDecrypted02 = BP::DecryptA(szEncrypted02, szKey);
+		szDecrypted03 = BP::DecryptA(szEncrypted03, szKey);
 
 		COUT << "Encrypted(A_00): ";
 		COUT << szEncrypted << ENDL;
@@ -104,18 +92,18 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
 
-		szEncrypted = BMP::BM_B0(szText, szKey);
+		szEncrypted = BP::EncryptB(szText, szKey);
 		Sleep(10);
-		szEncrypted01 = BMP::BM_B0(szText, szKey);
+		szEncrypted01 = BP::EncryptB(szText, szKey);
 		Sleep(10);
-		szEncrypted02 = BMP::BM_B0(szText, szKey);
+		szEncrypted02 = BP::EncryptB(szText, szKey);
 		Sleep(10);
-		szEncrypted03 = BMP::BM_B0(szText, szKey);
+		szEncrypted03 = BP::EncryptB(szText, szKey);
 
-		szDecrypted = BMP::BM_B1(szEncrypted, szKey);
-		szDecrypted01 = BMP::BM_B1(szEncrypted01, szKey);
-		szDecrypted02 = BMP::BM_B1(szEncrypted02, szKey);
-		szDecrypted03 = BMP::BM_B1(szEncrypted03, szKey);
+		szDecrypted = BP::DecryptB(szEncrypted, szKey);
+		szDecrypted01 = BP::DecryptB(szEncrypted01, szKey);
+		szDecrypted02 = BP::DecryptB(szEncrypted02, szKey);
+		szDecrypted03 = BP::DecryptB(szEncrypted03, szKey);
 
 		COUT << "Encrypted(B_00): ";
 		COUT << szEncrypted << ENDL;
@@ -138,17 +126,18 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << szDecrypted03 << ENDL;
 		COUT << ENDL;
 
-		szEncrypted = BMP::BM_C0(szText, szKey);
+		szEncrypted = BP::EncryptC(szText, szKey);
 		Sleep(10);
-		szEncrypted01 = BMP::BM_C0(szText, szKey);
+		szEncrypted01 = BP::EncryptC(szText, szKey);
 		Sleep(10);
-		szEncrypted02 = BMP::BM_C0(szText, szKey);
+		szEncrypted02 = BP::EncryptC(szText, szKey);
 		Sleep(10);
-		szEncrypted03 = BMP::BM_C0(szText, szKey);
-		szDecrypted = BMP::BM_C1(szEncrypted, szKey);
-		szDecrypted01 = BMP::BM_C1(szEncrypted01, szKey);
-		szDecrypted02 = BMP::BM_C1(szEncrypted02, szKey);
-		szDecrypted03 = BMP::BM_C1(szEncrypted03, szKey);
+		szEncrypted03 = BP::EncryptC(szText, szKey);
+
+		szDecrypted = BP::DecryptC(szEncrypted, szKey);
+		szDecrypted01 = BP::DecryptC(szEncrypted01, szKey);
+		szDecrypted02 = BP::DecryptC(szEncrypted02, szKey);
+		szDecrypted03 = BP::DecryptC(szEncrypted03, szKey);
 
 		COUT << "Encrypted(C_00): ";
 		COUT << szEncrypted << ENDL;
@@ -172,20 +161,24 @@ FILL main(NINT argc, NStrArray argv) -> NINT
 		COUT << ENDL;
 
 		std::vector<BYTE> szMegaEncrypted = StrToVec(szText);
-		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
-		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
-		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
-		szMegaEncrypted = BMP::BM_A0(szMegaEncrypted, szKey);
-		szMegaEncrypted = BMP::BM_B0(szMegaEncrypted, szKey);
-		szMegaEncrypted = BMP::BM_C0(szMegaEncrypted, szKey);
+
+		szMegaEncrypted = BP::EncryptA(szMegaEncrypted, szKey);
+		szMegaEncrypted = BP::EncryptB(szMegaEncrypted, szKey);
+		//szMegaEncrypted = BP::EncryptC(szMegaEncrypted, szKey);
+
+		szMegaEncrypted = BP::EncryptA(szMegaEncrypted, szKey);
+		szMegaEncrypted = BP::EncryptB(szMegaEncrypted, szKey);
+		//szMegaEncrypted = BP::EncryptC(szMegaEncrypted, szKey);
 
 		std::vector<BYTE> szMegaDecrypted = szMegaEncrypted;
-		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
-		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
-		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
-		szMegaDecrypted = BMP::BM_C1(szMegaDecrypted, szKey);
-		szMegaDecrypted = BMP::BM_B1(szMegaDecrypted, szKey);
-		szMegaDecrypted = BMP::BM_A1(szMegaDecrypted, szKey);
+
+		//szMegaDecrypted = BP::DecryptC(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptB(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptA(szMegaDecrypted, szKey);
+
+		//szMegaDecrypted = BP::DecryptC(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptB(szMegaDecrypted, szKey);
+		szMegaDecrypted = BP::DecryptA(szMegaDecrypted, szKey);
 
 		COUT << "Super Decryption: ";
 		COUT << VecToStr(szMegaDecrypted) << ENDL;
