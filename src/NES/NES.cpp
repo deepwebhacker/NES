@@ -6,7 +6,7 @@
 
 namespace BP
 {
-	std::string EncryptA(std::string text, std::string key)
+	std::string EncryptA(const std::string& text, const std::string& key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -15,7 +15,7 @@ namespace BP
 		time[1] += nr.GenerateRandom();
 		time[2] += nr.GenerateRandom();
 		time[3] += nr.GenerateRandom();
-	
+
 		std::vector<unsigned char> vec;
 		int TimeIterator = 0;
 
@@ -31,7 +31,7 @@ namespace BP
 			for (int j = 0; j < (int)key.length(); j++)
 			{
 				l = static_cast<unsigned char>(text[i] + (2 * key[j] * pow(key[j], 2) + TimeKey));
-		
+
 			}
 			TimeIterator++;
 			if (TimeIterator == time.size())
@@ -47,8 +47,8 @@ namespace BP
 		}
 		return returnStr;
 	}
-				
-	std::string DecryptA(std::string text, std::string key)
+
+	std::string DecryptA(const std::string& text, const std::string& key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
@@ -83,7 +83,7 @@ namespace BP
 		return returnStr;
 	}
 
-	std::string EncryptB(std::string text, std::string key)
+	std::string EncryptB(const std::string& text, const std::string& key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -137,8 +137,8 @@ namespace BP
 		}
 		return returnStr;
 	}
-				
-	std::string DecryptB(std::string text, std::string key)
+
+	std::string DecryptB(const std::string& text, const std::string& key)
 	{
 		std::vector<unsigned char> data;
 		unsigned char keyX = 0;
@@ -177,9 +177,9 @@ namespace BP
 		}
 		return returnStr;
 	}
-				
+
 	// UNSTABLE (USE HEX STRING)
-	std::string EncryptC(std::string text, std::string key)
+	std::string EncryptC(const std::string& text, const std::string& key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -233,8 +233,8 @@ namespace BP
 		}
 		return returnStr;
 	}
-				
-	std::string DecryptC(std::string text, std::string key)
+
+	std::string DecryptC(const std::string& text, const std::string& key)
 	{
 		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;
@@ -274,7 +274,7 @@ namespace BP
 			float SqrtOfText = MixOfTextKeySqrt - SqKeyX;
 			float TextD = SqrtOfText * SqrtOfText;
 			TextD = round(TextD);
-			
+
 			unsigned char TextN = (unsigned char)TextD;
 			data.push_back(TextN);
 		}
@@ -287,7 +287,7 @@ namespace BP
 		return returnStr;
 	}
 
-	std::vector<BYTE> EncryptA(const std::vector<BYTE>& inData, std::string key)
+	std::vector<BYTE> EncryptA(const std::vector<BYTE>& inData, const std::string& key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -324,7 +324,7 @@ namespace BP
 		return vec;
 	}
 
-	std::vector<BYTE> DecryptA(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> DecryptA(const std::vector<BYTE>& inData, const std::string& key)
 	{
 		std::vector<unsigned char> vec;
 		std::vector<unsigned char> time;
@@ -354,7 +354,7 @@ namespace BP
 		return vec;
 	}
 
-	std::vector<BYTE> EncryptB(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> EncryptB(const std::vector<BYTE>& inData, const std::string& key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -404,7 +404,7 @@ namespace BP
 		return data;
 	}
 
-	std::vector<BYTE> DecryptB(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> DecryptB(const std::vector<BYTE>& inData, const std::string& key)
 	{
 		std::vector<unsigned char> data;
 		unsigned char keyX = 0;
@@ -439,7 +439,7 @@ namespace BP
 	}
 
 	// UNSTABLE (USE HEX STRING)
-	std::vector<BYTE> EncryptC(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> EncryptC(const std::vector<BYTE>& inData, const std::string& key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
 
@@ -490,7 +490,7 @@ namespace BP
 		return data;
 	}
 
-	std::vector<BYTE> DecryptC(std::vector<BYTE> inData, std::string key)
+	std::vector<BYTE> DecryptC(const std::vector<BYTE>& inData, const std::string& key)
 	{
 		std::vector<unsigned char> data;
 		std::vector<unsigned char> vecRem;

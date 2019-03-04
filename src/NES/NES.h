@@ -9,25 +9,25 @@
 
 namespace BP // Basic Pipelines
 {
-	std::string EncryptA(std::string text, std::string key);
-	std::string DecryptA(std::string text, std::string key);
+	std::string EncryptA(const std::string& text, const std::string& key);
+	std::string DecryptA(const std::string& text, const std::string& key);
 
-	std::string EncryptB(std::string text, std::string key);
-	std::string DecryptB(std::string text, std::string key);
+	std::string EncryptB(const std::string& text, const std::string& key);
+	std::string DecryptB(const std::string& text, const std::string& key);
+
+	// UNSTABLE (USE HEX STRING)	
+	std::string EncryptC(const std::string& text, const std::string& key);
+	std::string DecryptC(const std::string& text, const std::string& key);
+
+	std::vector<BYTE> EncryptA(const std::vector<BYTE>& data, const std::string & key);
+	std::vector<BYTE> DecryptA(const std::vector<BYTE>& data, const std::string & key);
+
+	std::vector<BYTE> EncryptB(const std::vector<BYTE>& data, const std::string & key);
+	std::vector<BYTE> DecryptB(const std::vector<BYTE>& data, const std::string & key);
 
 	// UNSTABLE (USE HEX STRING)
-	std::string EncryptC(std::string text, std::string key);
-	std::string DecryptC(std::string text, std::string key);
-
-	std::vector<BYTE> EncryptA(const std::vector<BYTE> &data, std::string key);
-	std::vector<BYTE> DecryptA(std::vector<BYTE> data, std::string key);
-																	  	
-	std::vector<BYTE> EncryptB(std::vector<BYTE> data, std::string key);
-	std::vector<BYTE> DecryptB(std::vector<BYTE> data, std::string key);
-																	  	
-	// UNSTABLE (USE HEX STRING)
-	std::vector<BYTE> EncryptC(std::vector<BYTE> data, std::string key);
-	std::vector<BYTE> DecryptC(std::vector<BYTE> data, std::string key);
+	std::vector<BYTE> EncryptC(const std::vector<BYTE>& data, const std::string & key);
+	std::vector<BYTE> DecryptC(const std::vector<BYTE>& data, const std::string & key);
 }
 
 namespace AP // Advanced Pipelines
