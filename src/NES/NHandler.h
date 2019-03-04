@@ -19,27 +19,27 @@ namespace NHandler
 		{
 			if (p == "A0")
 			{
-				intext = NES::NESA0(intext, key);
+				intext = BP::EncryptA(intext, key);
 			}
 			else if (p == "A1")
 			{
-				intext = NES::NESA1(intext, key);
+				intext = BP::DecryptA(intext, key);
 			}
 			else if (p == "B0")
 			{
-				intext = NES::NESB0(intext, key);
+				intext = BP::EncryptB(intext, key);
 			}
 			else if (p == "B1")
 			{
-				intext = NES::NESB1(intext, key);
+				intext = BP::DecryptB(intext, key);
 			}
 			else if (p == "C0")
 			{
-				intext = NES::NESC0(intext, key);
+				intext = BP::EncryptC(intext, key);
 			}
 			else if (p == "C1")
 			{
-				intext = NES::NESC1(intext, key);
+				intext = BP::DecryptC(intext, key);
 			}
 		}
 		return intext;
@@ -52,27 +52,27 @@ namespace NHandler
 		{
 			if (p == "A0")
 			{
-				indata = NES::NESA0(data, key);
+				indata = BP::EncryptA(data, key);
 			}
 			else if (p == "A1")
 			{
-				indata = NES::NESA1(data, key);
+				indata = BP::DecryptA(data, key);
 			}
 			else if (p == "B0")
 			{
-				indata = NES::NESB0(data, key);
+				indata = BP::EncryptB(data, key);
 			}
 			else if (p == "B1")
 			{
-				indata = NES::NESB1(data, key);
+				indata = BP::DecryptB(data, key);
 			}
 			else if (p == "C0")
 			{
-				indata = NES::NESC0(data, key);
+				indata = BP::EncryptC(data, key);
 			}
 			else if (p == "C1")
 			{
-				indata = NES::NESC1(data, key);
+				indata = BP::DecryptC(data, key);
 			}
 		}
 		return indata;
