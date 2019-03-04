@@ -178,7 +178,7 @@ namespace BP
 		return returnStr;
 	}
 				
-	// UNSTABLE
+	// UNSTABLE (USE HEX STRING)
 	std::string EncryptC(std::string text, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());
@@ -438,7 +438,7 @@ namespace BP
 		return data;
 	}
 
-	// UNSTABLE
+	// UNSTABLE (USE HEX STRING)
 	std::vector<BYTE> EncryptC(std::vector<BYTE> inData, std::string key)
 	{
 		std::vector<unsigned char> time = NTime::DataFromEpoch(NTime::GrabEpoch());

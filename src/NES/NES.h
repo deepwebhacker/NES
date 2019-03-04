@@ -15,6 +15,7 @@ namespace BP // Basic Pipelines
 	std::string EncryptB(std::string text, std::string key);
 	std::string DecryptB(std::string text, std::string key);
 
+	// UNSTABLE (USE HEX STRING)
 	std::string EncryptC(std::string text, std::string key);
 	std::string DecryptC(std::string text, std::string key);
 
@@ -24,6 +25,7 @@ namespace BP // Basic Pipelines
 	std::vector<BYTE> EncryptB(std::vector<BYTE> data, std::string key);
 	std::vector<BYTE> DecryptB(std::vector<BYTE> data, std::string key);
 																	  	
+	// UNSTABLE (USE HEX STRING)
 	std::vector<BYTE> EncryptC(std::vector<BYTE> data, std::string key);
 	std::vector<BYTE> DecryptC(std::vector<BYTE> data, std::string key);
 }
