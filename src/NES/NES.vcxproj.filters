@@ -13,60 +13,78 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\NES">
+      <UniqueIdentifier>{66d3f1a1-46db-4f88-bed8-a512934b13ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NES">
+      <UniqueIdentifier>{6c333499-3b94-43c0-86fa-8d6612ddbe4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{e7568a1e-1f94-46ec-862e-5e48939fb482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{41915317-b273-45db-ba2c-46b2bced3ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\System">
+      <UniqueIdentifier>{78b7baf1-b74e-4970-ab96-719c94d5106e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entry">
+      <UniqueIdentifier>{385a6537-41b3-49c0-83b4-a6c7f2adbc74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NFile.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="NES.cpp">
+      <Filter>Source Files\NES</Filter>
     </ClCompile>
     <ClCompile Include="NString.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="NES.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NPattern.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Example.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="NFile.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
     <ClCompile Include="NKey.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\NES</Filter>
+    </ClCompile>
+    <ClCompile Include="NPattern.cpp">
+      <Filter>Source Files\NES</Filter>
     </ClCompile>
     <ClCompile Include="NRandom.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Example.cpp">
+      <Filter>Source Files\Entry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NFile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Precompiled.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NES.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\NES</Filter>
     </ClInclude>
-    <ClInclude Include="NPattern.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NKey.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NRandom.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NWin.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="NFile.h">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
     <ClInclude Include="NHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\NES</Filter>
+    </ClInclude>
+    <ClInclude Include="NString.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NKey.h">
+      <Filter>Header Files\NES</Filter>
+    </ClInclude>
+    <ClInclude Include="NPattern.h">
+      <Filter>Header Files\NES</Filter>
+    </ClInclude>
+    <ClInclude Include="NRandom.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NWin.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="NTime.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompiled.h">
+      <Filter>Header Files\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
